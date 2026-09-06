@@ -1,67 +1,65 @@
-# Rapid Trigger for GunZ — Revision 2.2
+# Rapid Trigger for GunZ
 
-This folder contains the current original-informed GitHub Pages rework. It is a local
-review candidate, not a live deployment. Upload its contents to the root of
-`GunzInputLab/gunzinputlab.github.io` only after Hanz accepts the revised flow, the new
-strings are translated, and native-language review is complete.
+Public GunZ guide and personal research notebook by HYPNATIQ.
+
+## Revision 2.4 direction
+
+The public guide is dedicated to Rapid Trigger in GunZ: what RT D and RT A officially
+do, what each control changes inside GunZ, what good tuning may help, what poor tuning
+can hurt, and how to test one distance without confusing it with another.
+
+Hanz's wider workflow remains personal and lives in the Research Notebook. It uses
+short notes to explain the everyday-profile goal, the separate GunZ-specific profile,
+mouse verification, the Wootility records, and the reasoning behind the public order.
 
 ## Pages
 
-- `index.html` — the current public tuning method
-- `research-notebook.html` — the revised research history and evidence boundary
-- `assets/site.css` — shared visual system and responsive layout
-- `assets/site.js` — theme, language switching, navigation, calculator, and print behavior
-- `assets/translations.js` — local Spanish, Brazilian Portuguese, Korean, Japanese, and Simplified Chinese translations
-- `assets/revision-22-translations.js` — reserved translation additions for the new Revision 2.2 text
-- `assets/rapid-trigger-cycle-tester.html` — the restored interactive tester from the original guide, aligned to the current starting checkpoint
-- `.nojekyll` — keeps GitHub Pages in static-file mode
+- `index.html` — Rapid Trigger behavior, immediate GunZ correlation, benefits and
+  tradeoffs, RT D/RT A tuning, Cycle Tester, troubleshooting, the restored two-column
+  glossary, and evidence. Colored terms open the matching quick-definition window.
+- `research-notebook.html` — bullet-first personal findings, two-profile reasoning,
+  full-input workflow, Wootility records, and evidence limits inside the same header,
+  progress, numbered rail, section banner, and mobile-navigation shell as the guide.
+- `assets/rapid-trigger-cycle-tester.html` — preserved interactive tester.
+- `assets/site.css` and `assets/site.js` — shared presentation and behavior.
+- `assets/revision-24-translations.js` — current translation structure and working
+  translations. English remains the approved source voice pending fluent review.
 
-## Original-informed changes
+## Public guide order
 
-- Restores `Rapid Trigger for GunZ` as the visible product identity.
-- Restores the compact numbered chapter-navigation idea from the supplied public guide.
-- Keeps the supplied notebook's research/history distinction while placing the final method first.
-- Preserves the supplied HTML files unchanged under `6 - Files From Hanz` and the earlier rework under `9 - Archived Files`.
-- Adds entry guidance for first-time readers, new GunZ players, veteran players, and keyboard enthusiasts.
-- Restores profile history, repeated-symptom troubleshooting, a blank test record, and a point-of-use glossary to the notebook.
-- Labels historical server results as keyboard checkpoints that predate the mouse-first verification gate.
-- Restores the original Cycle Tester behavior, colored quick definitions, and a 22-entry permanent glossary.
-- Rewrites the notebook workflow as short evidence bullets with `what`, `why`, and `passing evidence` summaries.
+1. Understand Rapid Trigger in plain language.
+2. Read one complete first-ON → OFF → reversal → next-ON cycle.
+3. Connect RT D and RT A to GunZ movement.
+4. Understand the benefits and costs of smaller travel.
+5. Begin from a repeatable GunZ base.
+6. Tune RT D for a deliberate OFF.
+7. Tune RT A for a deliberate next ON.
+8. Validate the result in training and PvP.
+9. Use the preserved three-profile Cycle Tester.
+10. Troubleshoot by repeated symptom, then use the glossary and evidence boundaries.
 
-## Final method order
+The public guide links to the Research Notebook from the left contents rail. The
+Research Notebook links back with its left-side **Open RT for GunZ** button. The
+existing return-to-reading control preserves the reader's place between pages.
+Both pages now use the same 1-to-1 navigation behavior, including active-section
+tracking, page count, progress, Back to top, mobile contents, and colored definition
+windows.
 
-1. Read the method and define actuation, RT D, RT A, ON, OFF, and reversal.
-2. Lock the GunZ client, resolution/aspect ratio, FOV, camera, crosshair, and input state.
-3. Start from a familiar hardware DPI and verify standing tracking in cm/360.
-4. Find a fixed actuation point that preserves normal typing.
-5. Use the Cycle Tester, then tune RT D for release and RT A for reactivation pace.
-6. Prove one familiar movement in controlled training.
-7. Validate movement and aim in separate PvP passes.
-8. Troubleshoot one repeated symptom, save the passing checkpoint, and retest over time.
+## Evidence boundary
 
-## Important content boundary
+- Manufacturer sources explain Hall-effect and Rapid Trigger control behavior.
+- GunZ application, tuning order, symptom model, and pass conditions are a personal
+  testing method that readers may adapt.
+- The profile values shown are recorded comparisons, not universal presets.
+- Personal mouse values are intentionally absent. The notebook explains the check
+  without publishing Hanz's numbers.
+- Local translation drafts still require fluent and regional review.
 
-- Resolution can change perceived motion and view geometry; it does not change hardware DPI.
-- eDPI conversion is for the same GunZ input pipeline, not a universal cross-game conversion.
-- Personal settings are documented checkpoints, not presets.
-- The current cm/360 remains intentionally blank until it is re-measured with the revised protocol.
-- Revision 2.1 translations are retained and complete Revision 2.2 drafts are included
-  for Spanish, Brazilian Portuguese, Korean, Japanese, and Simplified Chinese. Spanish
-  also powers the Peru and Venezuela selections. Every base dictionary contains every
-  page key; fluent-language review is still required before public release.
+## GitHub Pages
 
-## Package boundaries
+The repository is a static site. `.nojekyll` keeps GitHub Pages from processing the
+files through Jekyll. Both pages use relative links and work locally or at
+`https://gunzinputlab.github.io/` after deployment.
 
-`1 - Current Project\GunZ Input Lab - Revision 2.2 Multilingual Review.zip` contains
-the current source and all structurally complete language drafts. It is a review
-package, not a public release, until fluent-language review and Hanz's content
-acceptance are complete.
-
-The earlier `GunZ Input Lab - Revision 2.2 English Review.zip` remains a verified
-English-only snapshot. Package checksums and extracted-package test results are
-recorded outside the ZIP in `4 - QA and Verification` so a package never contains a
-self-invalidating copy of its own checksum.
-
-## Publish
-
-Replace the repository-root files with this folder, commit the change, and let the existing GitHub Pages workflow publish it. No framework or build step is required.
+Nothing in Revision 2.4 should be described as live until the source is committed,
+pushed, GitHub Pages finishes, and the live domain is checked.

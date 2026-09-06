@@ -4,163 +4,237 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://gunzinputlab.github.io/research-notebook.html">
-  <meta name="description" content="Research history, evidence boundaries, and the revised complete input tuning protocol for GunZ: The Duel.">
+  <meta name="description" content="HYPNATIQ's concise research notes behind the Rapid Trigger for GunZ method.">
   <meta name="theme-color" content="#05080d">
   <meta name="author" content="HYPNATIQ">
   <link rel="icon" href="assets/notebook-favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/site.css">
-  <title>Rapid Trigger for GunZ — Research Notebook</title>
+  <title>Rapid Trigger for GunZ · Research Notebook</title>
 </head>
-<body>
-  <a class="skip-link" href="#notebook" data-i18n="skipNotebook">Skip to the research</a>
+<body class="notebook-page">
+  <a class="skip-link" href="#notebookMain" data-i18n="skipNotebook">Skip to the research notes</a>
+
   <header class="site-header" id="top">
-    <div class="header-inner">
-      <a class="brand" href="index.html"><img src="assets/notebook-favicon.png" alt=""><span class="brand-copy"><strong data-i18n="notebookBrand">Research Notebook</strong><span>Rapid Trigger for GunZ · HYPNATIQ</span></span></a>
-      <nav class="top-nav" id="topNav" aria-label="Primary navigation"><a href="index.html" data-i18n="publicGuide">Public guide</a><a href="#conclusion" data-i18n="nbConclusion">Conclusion</a><a href="#protocol" data-i18n="nbProtocol">Protocol</a><a href="#history" data-i18n="nbHistory">History</a><a href="#limits" data-i18n="nbLimits">Evidence</a></nav>
-      <div class="header-tools">
-        <div class="language-wrap"><label class="sr-only" for="languageSelect" data-i18n="languageLabel">Language</label><select class="language-select" id="languageSelect" aria-label="Language"><option value="en">English</option><option value="es">Español</option><option value="es-PE">Español (Perú)</option><option value="pt-BR">Português (Brasil)</option><option value="es-VE">Español (Venezuela)</option><option value="ko">한국어</option><option value="ja">日本語</option><option value="zh-CN">简体中文</option></select></div>
-        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to light mode">◐</button><button class="icon-button menu-button" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">≡</button>
-      </div>
+    <a class="brand" href="#notebook-home" aria-label="Research Notebook home">
+      <img class="brand-mark" src="assets/research-logo.png" alt="">
+      <span><strong>Research Notebook</strong><small>Rapid Trigger for GunZ</small></span>
+    </a>
+    <div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div>
+    <div class="header-tools">
+      <label class="sr-only" for="languageSelect" data-i18n="languageLabel">Language</label>
+      <select class="language-select" id="languageSelect" aria-label="Language"><option value="en">English</option><option value="es">Español</option><option value="es-PE">Español (Perú)</option><option value="pt-BR">Português (Brasil)</option><option value="es-VE">Español (Venezuela)</option><option value="ko">한국어</option><option value="ja">日本語</option><option value="zh-CN">简体中文</option></select>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">Light</button>
+      <span class="page-indicator" id="pageIndicator">Page 01 / 11</span>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="Open notebook contents" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <main id="notebook">
-    <div class="page-shell">
-      <section class="hero notebook-hero">
-        <div><span class="eyebrow" data-i18n="nbEye">Research Revision 2.2 · September 2026</span><h1 data-i18n-html="nbTitle">The keyboard was<br><span>only half the test.</span></h1><p class="hero-lead" data-i18n="nbLead">This notebook explains why the method changed, what each stage isolates, and what a passing result actually proves.</p><div class="hero-actions"><a class="button primary" href="index.html" data-i18n="openPublicMethod">Open the public method</a><button class="button no-print" type="button" id="printNotebook" data-i18n="printNotebook">Print / save as PDF</button></div><span class="revision-stamp" data-i18n="revisionStamp">Current revision · mouse verification before keyboard validation</span></div>
-        <aside class="method-map"><div class="method-map-head" data-i18n="researchFinding">Primary research finding</div><div class="research-summary"><ul class="brief-list"><li data-i18n="finding1">Clean keyboard movement proves execution—not target coverage.</li><li data-i18n="finding2">Incorrect sensitivity can look like a Rapid Trigger pacing problem.</li><li data-i18n="finding3">Typing-safe actuation must be established before Rapid Trigger compensates for repeated movement.</li></ul><div class="callout good" data-i18n-html="findingRule"><strong>Revised rule:</strong> verify the mouse first, tune keyboard movement second, and validate the pair last.</div></div></aside>
-      </section>
-
-      <div class="notebook-layout">
-        <aside class="notebook-nav" aria-label="Notebook sections"><div class="notebook-nav-title" data-i18n="contents">Notebook contents</div><a href="#conclusion"><span>01</span><b data-i18n="n1">Conclusion first</b></a><a href="#trigger"><span>02</span><b data-i18n="n2">What changed the method</b></a><a href="#model"><span>03</span><b data-i18n="n3">Revised variable model</b></a><a href="#protocol"><span>04</span><b data-i18n="n4">Mouse verification</b></a><a href="#typing-note"><span>05</span><b data-i18n="n5">Typing baseline</b></a><a href="#rapid-trigger"><span>06</span><b data-i18n="n6">Rapid Trigger protocol</b></a><a href="#combined"><span>07</span><b data-i18n="n7">Combined validation</b></a><a href="#profiles"><span>08</span><b data-i18n="n8">Profiles and checkpoints</b></a><a href="#history"><span>09</span><b data-i18n="n9">History retained</b></a><a href="#test-log"><span>10</span><b data-i18n="n10">Troubleshooting and test log</b></a><a href="#glossary"><span>11</span><b data-i18n="n11">Glossary</b></a><a href="#limits"><span>12</span><b data-i18n="n12">Evidence and limits</b></a></aside>
-
-        <div>
-          <section class="entry" id="conclusion">
-            <header class="entry-head"><span class="entry-no">01</span><div><h2 data-i18n="c1Title">Conclusion first</h2><span class="entry-date" data-i18n="c1Date">Current interpretation · September 2026</span></div></header>
-            <ul class="brief-list conclusion-list"><li data-i18n="c1Point1">The original research correctly separated actuation, RT D, and RT A.</li><li data-i18n="c1Point2">It did not verify mouse coverage early enough.</li><li data-i18n="c1Point3">That allowed a passing keyboard profile and an incorrect sensitivity to appear as one keyboard problem.</li></ul>
-            <div class="reader-bridge compact" aria-labelledby="notebookReaderTitle">
-              <h3 id="notebookReaderTitle" data-i18n="notebookReaderTitle">How to read these notes</h3>
-              <div class="reader-grid">
-                <article><b data-i18n="lensReader">First-time reader</b><p data-i18n="notebookReaderP">Read the conclusion and variable model first. They define the dependency order before the history introduces older numbers.</p></article>
-                <article><b data-i18n="lensNewPlayer">New GunZ player</b><p data-i18n="notebookNewPlayerP">Treat movement names as test examples. You only need one familiar sequence before the input method becomes useful.</p></article>
-                <article><b data-i18n="lensVeteran">Veteran GunZ player</b><p data-i18n="notebookVeteranP">Use the symptom-to-variable logic and checkpoints. The historical server results document my path, not your required destination.</p></article>
-                <article><b data-i18n="lensKeyboard">Keyboard enthusiast</b><p data-i18n="notebookKeyboardP">Separate switch behavior from game application: actuation, RT D, and RT A describe input events; GunZ movement describes the test context.</p></article>
-              </div>
-            </div>
-            <div class="note-block"><h3 data-i18n="c1H">The final dependency order</h3><div class="flow-strip"><div class="flow-node"><b>01</b><span data-i18n="flow1">Environment</span><small data-i18n="flow1s">Make the test repeatable</small></div><div class="flow-node"><b>02</b><span data-i18n="flow2">DPI + view</span><small data-i18n="flow2s">Match what you actually use</small></div><div class="flow-node"><b>03</b><span data-i18n="flow3">Base sens</span><small data-i18n="flow3s">Track while standing still</small></div><div class="flow-node"><b>04</b><span data-i18n="flow4">Actuation</span><small data-i18n="flow4s">Keep normal typing fluent</small></div><div class="flow-node"><b>05</b><span data-i18n="flow5">Rapid Trigger</span><small data-i18n="flow5s">Make movement repeatable</small></div><div class="flow-node"><b>06</b><span data-i18n="flow6">PvP</span><small data-i18n="flow6s">Verify the pair together</small></div></div></div>
-          </section>
-
-          <section class="entry" id="trigger">
-            <header class="entry-head"><span class="entry-no">02</span><div><h2 data-i18n="c2Title">What changed the method</h2><span class="entry-date" data-i18n="c2Date">Real-world typing failure</span></div></header>
-            <div class="evidence-bullets"><div><b data-i18n="observed">Observed</b><ul><li data-i18n="c2Observed1">0.60 mm caused too many errors during a real interview.</li><li data-i18n="c2Observed2">The setting did not preserve my normal typing fluency.</li></ul></div><div><b data-i18n="changed">Changed</b><ul><li data-i18n="c2Changed1">Regular keys returned to 1.50 mm to mirror my MCHOSE work keyboard.</li><li data-i18n="c2Changed2">Rapid Trigger stays off in the untouched typing profile.</li></ul></div><div><b data-i18n="meaning">Meaning</b><ul><li data-i18n="c2Meaning1">The keyboard must remain dependable for work, writing, and GunZ.</li><li data-i18n="c2Meaning2">The GunZ profile starts from the typing-safe baseline and adds RT only where movement needs it.</li></ul></div></div>
-            <div class="callout" data-i18n-html="c2Rule"><strong>Changed question:</strong> not “How fast can I make the keyboard?” but “What is the shallowest actuation that preserves my normal typing, and how can Rapid Trigger help where that actuation falls short in GunZ?”</div>
-          </section>
-
-          <section class="entry" id="model">
-            <header class="entry-head"><span class="entry-no">03</span><div><h2 data-i18n="c3Title">Revised variable model</h2><span class="entry-date" data-i18n="c3Date">One job per control</span></div></header>
-            <div class="grid-2">
-              <article class="note-block"><h3 data-i18n="modelView">View environment</h3><p data-i18n="modelViewP">Resolution, aspect ratio, FOV, camera distance, and crosshair define what the same motion looks like. They are controlled conditions, not tuning leftovers.</p></article>
-              <article class="note-block"><h3 data-i18n="modelMouse">DPI + sensitivity</h3><p data-i18n="modelMouseP">DPI is the hardware count density. GunZ sensitivity scales it in the game. Cm/360 records the physical result. Together they determine whether the mouse can cover and place the target.</p></article>
-              <article class="note-block"><h3 data-i18n="modelAct">Actuation</h3><p data-i18n="modelActP">The first ON from the released top. It must remain deliberate and fluent during normal typing before gaming adjustments begin.</p></article>
-              <article class="note-block"><h3 data-i18n="modelRtd">RT D · release</h3><p data-i18n="modelRtdP">The upward distance required before OFF. It is adjusted when later releases repeatedly fail—not simply because an opponent is fast.</p></article>
-              <article class="note-block"><h3 data-i18n="modelRta">RT A · reactivation</h3><p data-i18n="modelRtaP">The downward distance after reversal before the next ON. It is adjusted when movement is clean but repeatedly behind the pace.</p></article>
-              <article class="note-block"><h3 data-i18n="modelPvp">PvP result</h3><p data-i18n="modelPvpP">The final system check. The movement must stay executable while the verified mouse keeps and places the opponent.</p></article>
-            </div>
-          </section>
-
-          <section class="entry" id="protocol">
-            <header class="entry-head"><span class="entry-no">04</span><div><h2 data-i18n="c4Title">Mouse verification protocol</h2><span class="entry-date" data-i18n="c4Date">Required before keyboard tuning</span></div></header>
-            <div class="protocol-brief"><div><b data-i18n="protocolWhat">What this isolates</b><span data-i18n="mouseIsolates">Mouse coverage and aim distance without keyboard movement.</span></div><div><b data-i18n="protocolWhy">Why it comes first</b><span data-i18n="mouseWhyFirst">A keyboard cannot fix an opponent leaving the usable view.</span></div><div><b data-i18n="protocolPass">Passing evidence</b><span data-i18n="mousePassEvidence">Targets stay visible and tracking does not repeat one over- or undershoot direction.</span></div></div>
-            <ol class="number-list"><li data-i18n="mp1">Choose one familiar hardware DPI and disable accidental DPI switching.</li><li data-i18n="mp2">Load your real GunZ resolution, aspect ratio, FOV, and camera settings.</li><li data-i18n="mp3">Stand still. Track moving players with the mouse only; do not judge keyboard timing yet.</li><li data-i18n="mp4">Measure the result in cm/360 with Mouse-Sensitivity.com or a physical 360° test.</li><li data-i18n="mp5">Work in 0.1 cm steps. Lower cm/360 is faster; higher cm/360 is slower.</li><li data-i18n="mp6">Freeze the first value that repeatedly keeps targets in view without repeated over- or undershoot.</li></ol>
-            <div class="note-block"><h3 data-i18n="c4H">What eDPI can and cannot do</h3><span class="formula"><span data-i18n="formulaGunZEdpi">eDPI = DPI × GunZ sensitivity</span><br><span data-i18n="formulaGunZNewSens">equivalent GunZ sensitivity = eDPI ÷ new DPI</span></span><p data-i18n="c4P">This transfers a value between DPIs inside the same GunZ input setup. It does not guarantee the same feel across different games, FOV models, acceleration states, clients, or input APIs. Cm/360 is the physical verification.</p></div>
-          </section>
-
-          <section class="entry" id="typing-note">
-            <header class="entry-head"><span class="entry-no">05</span><div><h2 data-i18n="c5Title">Typing baseline protocol</h2><span class="entry-date" data-i18n="c5Date">Rapid Trigger off</span></div></header>
-            <div class="protocol-brief"><div><b data-i18n="protocolWhat">What this isolates</b><span data-i18n="typingIsolates">First-press sensitivity with Rapid Trigger disabled.</span></div><div><b data-i18n="protocolWhy">Why it comes first</b><span data-i18n="typingWhyFirst">Rapid Trigger should not hide an actuation value that harms normal use.</span></div><div><b data-i18n="protocolPass">Passing evidence</b><span data-i18n="typingPassEvidence">WPM, accuracy, and real-writing fluency remain near the normal range.</span></div></div>
-            <ul class="brief-list"><li data-i18n="typingStep1">Run several familiar Monkeytype tests after warming up.</li><li data-i18n="typingStep2">Watch mistakes and corrections—not only the fastest WPM result.</li><li data-i18n="typingStep3">Confirm the same value in email, chat, editing, and real work.</li><li data-i18n="typingStep4">Save the shallowest passing value as the untouched typing profile.</li></ul>
-            <div class="record-grid"><div class="record-item"><span data-i18n="profile">Profile</span><strong data-i18n="typing">Typing</strong><small data-i18n="baselineUntouched">Saved and left untouched</small></div><div class="record-item"><span data-i18n="regularKeys">Regular keys</span><strong>1.50 mm</strong><small data-i18n="personalCurrent">Current personal result</small></div><div class="record-item"><span data-i18n="spacebar">Spacebar</span><strong>0.80 mm</strong><small data-i18n="separateKey">Personal separate-key value</small></div><div class="record-item"><span>Rapid Trigger</span><strong>OFF</strong><small data-i18n="typingMode">Typing mode</small></div><div class="record-item"><span data-i18n="passCondition">Pass condition</span><strong data-i18n="normalFluency">Normal fluency</strong><small data-i18n="repeatTests">Repeated tests + real work</small></div></div>
-          </section>
-
-          <section class="entry" id="rapid-trigger">
-            <header class="entry-head"><span class="entry-no">06</span><div><h2 data-i18n="c6Title">Rapid Trigger protocol</h2><span class="entry-date" data-i18n="c6Date">Keyboard movement only</span></div></header>
-            <div class="protocol-brief"><div><b data-i18n="protocolWhat">What this isolates</b><span data-i18n="rtIsolates">Release-to-OFF and reactivation-to-ON during repeated movement.</span></div><div><b data-i18n="protocolWhy">Why it comes here</b><span data-i18n="rtWhyHere">The mouse, view, and typing-safe first press are already controlled.</span></div><div><b data-i18n="protocolPass">Passing evidence</b><span data-i18n="rtPassEvidence">One familiar sequence repeats cleanly without one recurring failure.</span></div></div>
-            <ul class="brief-list"><li data-i18n="rtStep1">Duplicate the typing-safe base; never overwrite it.</li><li data-i18n="rtStep2">Enable Rapid Trigger only on keys that need repeated inputs.</li><li data-i18n="rtStep3">Establish an RT D release you can clearly clear and keep it fixed.</li><li data-i18n="rtStep4">Start RT A conservatively and lower it one small step only when clean movement repeatedly falls behind.</li></ul>
-            <div class="cycle"><div class="cycle-step actuation"><b>01</b><strong data-i18n="cycle1">First ON</strong><small data-i18n="cycle1s">Fixed actuation from the released top.</small></div><div class="cycle-step"><b>02</b><strong data-i18n="cycle2">Continue down</strong><small data-i18n="cycle2s">The key stays ON toward bottom-out.</small></div><div class="cycle-step rt-d"><b>03 · RT D</b><strong data-i18n="cycle3">Release to OFF</strong><small data-i18n="cycle3s">Upward distance required before the key turns OFF.</small></div><div class="cycle-step"><b>04</b><strong data-i18n="cycle4">Reverse</strong><small data-i18n="cycle4s">Your finger stops rising and starts pressing again.</small></div><div class="cycle-step rt-a"><b>05 · RT A</b><strong data-i18n="cycle5">Next ON</strong><small data-i18n="cycle5s">Downward distance after reversal before reactivation.</small></div></div>
-            <div class="callout warning" data-i18n-html="c6Warn"><strong>Diagnostic rule:</strong> RT A is the first pacing adjustment. RT D changes only when release clearance is the repeated failure. The labels may differ on other keyboards, so match the direction and event—not just the vendor’s name.</div>
-          </section>
-
-          <section class="entry" id="combined">
-            <header class="entry-head"><span class="entry-no">07</span><div><h2 data-i18n="c7Title">Combined PvP validation</h2><span class="entry-date" data-i18n="c7Date">Two passes, never two live variables</span></div></header>
-            <div class="split-test"><article class="test-lane"><span class="lane-label" data-i18n="movementPass">Pass A · Movement</span><h3 data-i18n="movementQuestion">Does the move stay clean and keep pace?</h3><p class="muted" data-i18n="movementP">Freeze DPI, cm/360, view settings, actuation, and RT D. Fight familiar opponents. If the character repeatedly arrives behind even though the sequence is clean, adjust RT A one step.</p></article><article class="test-lane"><span class="lane-label" data-i18n="aimPass">Pass B · Aim</span><h3 data-i18n="aimQuestion">Can the mouse keep and place the target?</h3><p class="muted" data-i18n="aimP">Freeze the passing keyboard. Use a visible center dot if your client has no crosshair. If opponents repeatedly leave the screen or the crosshair lands short/long, adjust cm/360 by 0.1 cm and retest.</p></article></div>
-            <ul class="brief-list"><li data-i18n="combinedStep1">Run the movement pass first and keep the mouse fixed.</li><li data-i18n="combinedStep2">Freeze the passing keyboard before the aim pass.</li><li data-i18n="combinedStep3">Change RT A for repeated movement pacing; change cm/360 for repeated aim direction.</li><li data-i18n="combinedStep4">Keep the pair unchanged for several sessions before calling it preferred.</li></ul>
-          </section>
-
-          <section class="entry" id="profiles">
-            <header class="entry-head"><span class="entry-no">08</span><div><h2 data-i18n="profilesTitle">Profiles and checkpoints</h2><span class="entry-date" data-i18n="profilesDate">Current starting records and historical results</span></div></header>
-            <p data-i18n="profilesIntro">I keep the typing profile untouched, duplicate a GunZ base when I test, and save a server result only when it repeats. The older server profiles below were found before mouse verification became the first gate, so they remain historical keyboard checkpoints until the complete input chain is revalidated.</p>
-            <div class="comparison"><table><thead><tr><th data-i18n="profile">Profile</th><th data-i18n="profileStatus">Status</th><th data-i18n="actuation">Actuation</th><th>RT A</th><th>RT D</th><th data-i18n="profileMeaning">What the record means</th></tr></thead><tbody>
-              <tr><td data-i18n="typing">Typing</td><td data-i18n="statusCurrent">Current</td><td>1.50 mm</td><td>OFF</td><td>OFF</td><td data-i18n="typingRecordMeaning">Regular-key baseline that passed repeated typing and real work; spacebar remains a separate personal 0.80 mm value.</td></tr>
-              <tr><td>GunZ Base</td><td data-i18n="statusStarting">Starting checkpoint</td><td>1.50 mm</td><td>1.75 mm</td><td>0.35 mm</td><td data-i18n="baseRecordMeaning">Conservative keyboard start to duplicate after the mouse and view are verified.</td></tr>
-              <tr><td>iGunz</td><td data-i18n="statusHistorical">Historical</td><td>1.55 mm</td><td>0.10 mm</td><td>0.35 mm</td><td data-i18n="historicalRecordMeaning">A repeatable keyboard result from the earlier flow; not yet a complete mouse-verified result.</td></tr>
-              <tr><td>FXP GunZ</td><td data-i18n="statusHistorical">Historical</td><td>1.55 mm</td><td>0.35 mm</td><td>0.35 mm</td><td data-i18n="historicalRecordMeaning">A repeatable keyboard result from the earlier flow; not yet a complete mouse-verified result.</td></tr>
-              <tr><td>FGunZ</td><td data-i18n="statusHistorical">Historical</td><td>1.55 mm</td><td>1.15 mm</td><td>0.35 mm</td><td data-i18n="historicalRecordMeaning">A repeatable keyboard result from the earlier flow; not yet a complete mouse-verified result.</td></tr>
-            </tbody></table></div>
-            <div class="callout" data-i18n="profilesRule">The method should be reproducible; the final number does not have to match. A saved keyboard value becomes a current complete profile only after the mouse, movement, and aim passes all succeed together.</div>
-          </section>
-
-          <section class="entry" id="history">
-            <header class="entry-head"><span class="entry-no">09</span><div><h2 data-i18n="c8Title">History retained, not discarded</h2><span class="entry-date" data-i18n="c8Date">Earlier results remain evidence</span></div></header>
-            <p data-i18n="c8P">The earlier keyboard work remains useful because it established what each control changes. It is now archived below the final method so readers do not mistake a historical personal checkpoint for the required starting point.</p>
-            <details><summary data-i18n="hist1">Original 0.20 mm WASD profile</summary><div data-i18n="hist1P">The first method pushed WASD actuation to 0.20 mm and tuned other action keys around it. It produced speed, but required a gaming-specific physical baseline that did not translate cleanly to everyday typing.</div></details>
-            <details><summary data-i18n="hist2">1.75 / 0.65 first Rapid Trigger baseline</summary><div data-i18n="hist2P">With 0.20 mm WASD, RT A was lowered from 1.95 to 1.75 mm while RT D stayed at 0.65 mm. This identified a repeatable double-tap pace and clarified that reactivation and release were separate events.</div></details>
-            <details><summary data-i18n="hist3">1.55 mm actuation discovery</summary><div data-i18n="hist3P">Using an approximately 3.30 mm calibrated bottom, 3.30 − 1.75 = 1.55 mm became a physical travel reference. It later passed a typing test with Rapid Trigger off. This was a valid personal result, but the newer real-world test now favors 1.50 mm for regular keys.</div></details>
-            <details><summary data-i18n="hist4">Server-specific RT A checkpoints</summary><div data-i18n="hist4P">iGunz, FXP GunZ, and FGunZ produced different repeatable personal RT A values while other conditions were held still. Those results document the tuning path; they do not measure or rank server delay.</div></details>
-          </section>
-
-          <section class="entry" id="test-log">
-            <header class="entry-head"><span class="entry-no">10</span><div><h2 data-i18n="testLogTitle">Troubleshooting and test log</h2><span class="entry-date" data-i18n="testLogDate">One repeated symptom, one changed variable</span></div></header>
-            <ul class="brief-list"><li data-i18n="logRule1">Do not tune from one miss or one bad dash.</li><li data-i18n="logRule2">Record what stayed fixed before changing one value.</li><li data-i18n="logRule3">Look for the same result across a real session.</li><li data-i18n="logRule4">Return to the last passing checkpoint when the cause becomes unclear.</li></ul>
-            <div class="comparison"><table><thead><tr><th data-i18n="symptom">Repeated symptom</th><th data-i18n="investigate">Investigate</th><th data-i18n="keepFixed">Keep fixed</th></tr></thead><tbody>
-              <tr><td data-i18n="s1">Typing becomes error-prone</td><td data-i18n="actuation">Actuation</td><td data-i18n="s1f">Rapid Trigger off</td></tr>
-              <tr><td data-i18n="s2">First move works; later releases fail</td><td>RT D</td><td data-i18n="s2f">Actuation, RT A, mouse</td></tr>
-              <tr><td data-i18n="s3">Movement is clean but repeatedly behind</td><td>RT A</td><td data-i18n="s3f">RT D, actuation, mouse</td></tr>
-              <tr><td data-i18n="s4">Movement is clean; target leaves the screen</td><td data-i18n="sensitivity">Sensitivity</td><td data-i18n="s4f">Complete keyboard profile</td></tr>
-              <tr><td data-i18n="s6">One miss, one tumble, unclear cause</td><td data-i18n="checkpoint">Checkpoint</td><td data-i18n="s6f">Everything</td></tr>
-            </tbody></table></div>
-            <div class="note-block"><h3 data-i18n="blankLogTitle">Blank repeat-test record</h3><div class="blank-log">
-              <div><b data-i18n="logCondition">Client, server, map, and test</b><span>________________________________</span></div>
-              <div><b data-i18n="logHeld">What stayed fixed</b><span>________________________________</span></div>
-              <div><b data-i18n="logChanged">The one value I changed</b><span>________________________________</span></div>
-              <div><b data-i18n="logObserved">What repeatedly happened</b><span>________________________________</span></div>
-              <div><b data-i18n="logDecision">Pass, fail, or return to checkpoint</b><span>________________________________</span></div>
-            </div></div>
-          </section>
-
-          <section class="entry" id="glossary">
-            <header class="entry-head"><span class="entry-no">11</span><div><h2 data-i18n="glossaryTitle">Glossary in the order it is used</h2><span class="entry-date" data-i18n="glossaryDate">Keyboard language translated into GunZ testing</span></div></header>
-            <details><summary>DPI</summary><div data-i18n="glossaryDpi">The mouse sensor's count density. It is a hardware setting, not a measurement of how the game looks on screen.</div></details>
-            <details><summary>cm/360</summary><div data-i18n="glossaryCm">The physical mouse distance needed to rotate the in-game view one full turn. Lower cm/360 is faster; higher cm/360 is slower.</div></details>
-            <details><summary data-i18n="actuation">Actuation</summary><div data-i18n="modelActP">The first ON from the released top. It must remain deliberate and fluent during normal typing before gaming adjustments begin.</div></details>
-            <details><summary data-i18n="rtdTitle">RT D · Deactivate</summary><div data-i18n="modelRtdP">The upward distance required before OFF. It is adjusted when later releases repeatedly fail—not simply because an opponent is fast.</div></details>
-            <details><summary data-i18n="rtaTitle">RT A · Activate</summary><div data-i18n="modelRtaP">The downward distance after reversal before the next ON. It is adjusted when movement is clean but repeatedly behind the pace.</div></details>
-            <details><summary data-i18n="checkpoint">Checkpoint</summary><div data-i18n="glossaryCheckpoint">A complete saved record of the settings and test conditions that passed. It is the rollback point before one value changes.</div></details>
-            <details><summary data-i18n="gunzMovement">GunZ movement sequence</summary><div data-i18n="glossaryMovement">A repeatable in-game action such as Flash Step, PPQ, or GDHS. The site uses these as tests; it does not teach the movement itself.</div></details>
-          </section>
-
-          <section class="entry" id="limits">
-            <header class="entry-head"><span class="entry-no">12</span><div><h2 data-i18n="c9Title">Evidence, limits, and next measurement</h2><span class="entry-date" data-i18n="c9Date">What is verified vs still open</span></div></header>
-            <div class="comparison"><table><thead><tr><th data-i18n="evidenceType">Evidence type</th><th data-i18n="supports">Supports</th><th data-i18n="doesNot">Does not establish</th></tr></thead><tbody><tr><td data-i18n="manufacturerDocs">Manufacturer documentation</td><td data-i18n="docsSupport">Actuation and Rapid Trigger event behavior</td><td data-i18n="docsLimit">Universal GunZ settings</td></tr><tr><td data-i18n="microsoftDocs">Microsoft input documentation</td><td data-i18n="msSupport">Difference between raw and pointer-scaled input paths</td><td data-i18n="msLimit">Which path every GunZ client uses</td></tr><tr><td data-i18n="travelMath">Travel arithmetic</td><td data-i18n="mathSupport">Whether configured distances fit within calibrated travel</td><td data-i18n="mathLimit">Where the finger actually reverses</td></tr><tr><td data-i18n="personalTests">Repeated personal tests</td><td data-i18n="testSupport">The method, symptoms, and saved checkpoints reported here</td><td data-i18n="testLimit">A universal preset or measured server latency</td></tr></tbody></table></div>
-            <div class="callout" data-i18n-html="nextMeasurement"><strong>Open measurement:</strong> the current cm/360 remains intentionally blank until the 850 DPI GunZ setup is re-measured through the revised standing-tracking and physical-turn protocol. The historical 5250 sensitivity is a starting record, not the final verified mouse result.</div>
-            <div class="inline-links"><a href="https://www.mouse-sensitivity.com/" target="_blank" rel="noopener">Mouse-Sensitivity.com ↗</a><a href="https://monkeytype.com/" target="_blank" rel="noopener">Monkeytype ↗</a><a href="https://help.wooting.io/article/102-how-to-set-up-rapid-trigger" target="_blank" rel="noopener">Wooting Rapid Trigger ↗</a><a href="https://learn.microsoft.com/en-us/windows/win32/dxtecharts/taking-advantage-of-high-dpi-mouse-movement" target="_blank" rel="noopener">Microsoft mouse input ↗</a><a href="index.html" data-i18n="returnGuide">Return to the public guide →</a></div>
-          </section>
-        </div>
+  <aside class="guide-nav notebook-guide-nav" id="notebookSidebar" aria-label="Notebook contents">
+    <p class="nav-title" data-i18n="notebookContents">Notebook contents</p>
+    <a href="#notebook-home"><span>01</span><b data-i18n="nbNavOverview">Overview</b></a>
+    <a href="#tldr"><span>02</span><b data-i18n="nbNavTldr">TL;DR</b></a>
+    <a href="#everyday"><span>03</span><b data-i18n="nbNavEveryday">Everyday profile</b></a>
+    <a href="#gunz-profile"><span>04</span><b data-i18n="nbNavGunz">GunZ-specific profile</b></a>
+    <a href="#controls"><span>05</span><b data-i18n="nbNavControls">What RT D and RT A mean</b></a>
+    <a href="#finding"><span>06</span><b data-i18n="nbNavFinding">What changed my thinking</b></a>
+    <a href="#method"><span>07</span><b data-i18n="nbNavMethod">My current method</b></a>
+    <a href="#screenshots"><span>08</span><b data-i18n="nbNavScreens">Wootility records</b></a>
+    <a href="#history"><span>09</span><b data-i18n="nbNavHistory">What I kept from V1</b></a>
+    <a href="#limits"><span>10</span><b data-i18n="nbNavLimits">Evidence & limits</b></a>
+    <a href="#help"><span>11</span><b data-i18n="nbNavHelp">Help & contact</b></a>
+    <a class="rail-page-link remember-position" href="index.html" data-i18n="publicGuide">Open RT for GunZ</a>
+    <button class="button rail-print" id="printNotebook" type="button" data-i18n="printNotebook">Print / save as PDF</button>
+    <div class="side-note">
+      <strong data-i18n="readColors">Read the colors.</strong>
+      <span class="side-note-intro" data-i18n="colorIntro">Select a colored term for a short definition without leaving your place.</span>
+      <div class="color-key">
+        <div class="color-key-item"><span class="term-link term-tech">Keyboard term</span><small>Switch motion or actuation</small></div>
+        <div class="color-key-item"><span class="term-link term-guide">Guide term</span><small>A practical label used here</small></div>
+        <div class="color-key-item"><span class="term-link term-a">RT A · Activate</span><small>Downward re-press travel</small></div>
+        <div class="color-key-item"><span class="term-link term-d">RT D · Deactivate</span><small>Upward release travel</small></div>
       </div>
     </div>
-  </main>
-  <footer class="site-footer"><div class="page-shell footer-inner"><span data-i18n="nbFooter">Rapid Trigger for GunZ · Research Revision 2.1 · HYPNATIQ</span><a href="#top" data-i18n="backTop">Back to top ↑</a></div></footer>
-  <script src="assets/translations.js"></script>
-  <script src="assets/revision-22-translations.js"></script>
+  </aside>
+
+  <div class="section-banner" id="sectionBanner" aria-hidden="true">
+    <div class="section-banner-inner"><b id="bannerPage">Page 01</b><span id="bannerTitle">Overview</span><a href="#top">Section start ↑</a></div>
+  </div>
+
+  <main class="guide-main notebook-main" id="notebookMain">
+      <section class="hero notebook-hero tracked-section" id="notebook-home" data-page="01" data-title="Overview">
+        <div class="hero-inner notebook-hero-inner">
+          <span class="eyebrow" data-i18n="nbEye">Personal notes · Revision 2.4</span>
+          <h1 data-i18n-html="nbTitle">My findings.<br><span>In the order I found them.</span></h1>
+          <p class="lede" data-i18n="nbLead">This is the personal side of the project: what I noticed, what I changed, what happened, and what it taught me.</p>
+          <div class="notebook-snapshot"><strong>How to read this:</strong> the public guide explains Rapid Trigger for any GunZ player. These notes explain my process and why the guide changed.</div>
+        </div>
+      </section>
+
+      <div class="notebook-content">
+        <section class="notebook-entry tracked-section" id="tldr" data-page="02" data-title="TL;DR">
+          <header class="entry-head"><span class="entry-no">02</span><div><h2 data-i18n="nbTldrTitle">TL;DR</h2><span class="entry-date" data-i18n="nbTldrDate">The whole finding in one minute</span></div></header>
+          <article class="note-sheet tldr-box">
+            <ul class="note-list">
+              <li>I wanted one keyboard to stay comfortable for normal use and still feel fluent in GunZ.</li>
+              <li>I kept an everyday profile that still feels like a keyboard and lets me type at 100+ WPM.</li>
+              <li>I use Rapid Trigger to reduce the extra key travel between GunZ inputs—not to turn the keyboard into a different device.</li>
+              <li><button class="term-link term-d" type="button" data-term="rtd">RT D</button> reduces the upward release travel required before OFF. It does not remove all input or game delay.</li>
+              <li><button class="term-link term-a" type="button" data-term="rta">RT A</button> sets the downward re-press travel before the next ON. I use it to clean up the dash pace I am trying to perform.</li>
+              <li>I also keep a GunZ-specific profile when I want more intentional control over movement and timing.</li>
+              <li>I check the mouse and screen separately before blaming a clean keyboard result for an aim problem.</li>
+            </ul>
+            <p class="callout good"><strong>What I learned:</strong> keep the keyboard comfortable, let RT D clear the old input, let RT A shape the next re-press, and stop once the movement stays deliberate.</p>
+          </article>
+        </section>
+
+        <section class="notebook-entry tracked-section" id="everyday" data-page="03" data-title="Everyday profile">
+          <header class="entry-head"><span class="entry-no">03</span><div><h2 data-i18n="nbEverydayTitle">My everyday profile</h2><span class="entry-date" data-i18n="nbEverydayDate">Keeping my keyboard as a keyboard</span></div></header>
+          <article class="note-sheet">
+            <h3 class="note-heading">What I wanted</h3>
+            <ul class="note-list"><li>One profile I can trust for normal typing, work, and daily use.</li><li>Normal typing should not be sacrificed for one game.</li><li>My WPM should stay at 100+ without the keyboard feeling nervous.</li></ul>
+            <h3 class="note-heading">What Rapid Trigger adds for GunZ</h3>
+            <ul class="note-list"><li>RT D lets the active key turn OFF after a chosen amount of upward movement.</li><li>That reduces the required release travel between inputs; it does not remove every kind of delay.</li><li>RT A lets the next ON happen after a chosen amount of downward movement following reversal.</li><li>That gives me a way to clean up the pace between dashes without changing the first actuation just to chase speed.</li></ul>
+            <h3 class="note-heading">What it means to me</h3>
+            <ul class="note-list"><li>The keyboard keeps its normal everyday feel.</li><li>Rapid Trigger helps the same keyboard keep GunZ movement consistent and fluent.</li><li>I get the benefit of shorter OFF/ON travel while keeping the first press comfortable.</li></ul>
+            <p class="callout"><strong>My wording, fact-checked:</strong> RT D reduces required release travel. RT A reduces or increases required re-press travel. Neither setting promises a fixed time saving.</p>
+          </article>
+        </section>
+
+        <section class="notebook-entry tracked-section" id="gunz-profile" data-page="04" data-title="GunZ-specific profile">
+          <header class="entry-head"><span class="entry-no">04</span><div><h2 data-i18n="nbGunzTitle">My GunZ-specific profile</h2><span class="entry-date" data-i18n="nbGunzDate">A separate choice for more intentional movement</span></div></header>
+          <article class="note-sheet">
+            <h3 class="note-heading">Why I keep it</h3>
+            <ul class="note-list"><li>I do not always want the everyday profile to carry every GunZ experiment.</li><li>A separate copy lets me tune around movement and timing without losing the profile I trust for everything else.</li><li>It gives me a more direct, intentional feel over character movement when I choose to use it.</li></ul>
+            <h3 class="note-heading">The boundary</h3>
+            <ul class="note-list"><li>This is my personal profile decision, not a requirement for Rapid Trigger.</li><li>The public guide teaches the controls and method without asking anyone to copy my settings.</li><li>The only current configuration values recorded here are the keyboard values visible in my Wootility screenshots below.</li></ul>
+          </article>
+        </section>
+
+        <section class="notebook-entry tracked-section" id="controls" data-page="05" data-title="What RT D and RT A mean">
+          <header class="entry-head"><span class="entry-no">05</span><div><h2 data-i18n="nbControlsTitle">What RT D and RT A mean to me in GunZ</h2><span class="entry-date" data-i18n="nbControlsDate">Official behavior first · GunZ connection second</span></div></header>
+          <article class="note-sheet">
+            <h3 class="note-heading"><button class="term-link term-d" type="button" data-term="rtd">RT D · Deactivate</button></h3>
+            <ul class="note-list">
+              <li><strong>Official behavior:</strong> the upward distance an active key travels before the keyboard reports OFF.</li>
+              <li><strong>GunZ connection:</strong> how much I have to lift before the old direction or action clears.</li>
+              <li><strong>When it helps:</strong> the release happens with less upward travel, so the next part of my movement is not waiting on a deep reset.</li>
+              <li><strong>When it is too low:</strong> small pressure changes can report OFF earlier than I meant.</li>
+              <li><strong>When it is too high:</strong> the old input can stay active longer than my movement rhythm expects.</li>
+            </ul>
+            <h3 class="note-heading"><button class="term-link term-a" type="button" data-term="rta">RT A · Activate</button></h3>
+            <ul class="note-list">
+              <li><strong>Official behavior:</strong> the downward distance after reversal before the keyboard reports the next ON while Rapid Trigger is active.</li>
+              <li><strong>GunZ connection:</strong> how much I have to re-press before the next direction, dash, or repeated action begins.</li>
+              <li><strong>When it helps:</strong> I can match the re-press travel to the dash pace I am trying to perform.</li>
+              <li><strong>When it is too low:</strong> a small bounce or unfinished motion can start the next input early.</li>
+              <li><strong>When it is too high:</strong> the next input can feel late or fail to arrive before my finger reverses again.</li>
+            </ul>
+            <p class="callout amber"><strong>The part I had to correct:</strong> RT A does not directly set GunZ speed. It sets a re-press distance. My finger motion turns that distance into a real input pace.</p>
+          </article>
+        </section>
+
+        <section class="notebook-entry tracked-section" id="finding" data-page="06" data-title="What changed my thinking">
+          <header class="entry-head"><span class="entry-no">06</span><div><h2 data-i18n="nbFindingTitle">What changed my thinking</h2><span class="entry-date" data-i18n="nbFindingDate">From a gaming-only tune to a full input check</span></div></header>
+          <article class="note-sheet">
+            <h3 class="note-heading">What I saw</h3>
+            <ul class="note-list"><li>A very shallow actuation could feel quick in GunZ and still make normal typing harder.</li><li>A movement could become clean while my aim still landed short or long.</li><li>Changing the keyboard again could hide the aim problem instead of identifying it.</li></ul>
+            <h3 class="note-heading">What I changed</h3>
+            <ul class="note-list"><li>I stopped using “lowest possible” as the goal.</li><li>I checked that my everyday actuation still supported normal typing.</li><li>I separated keyboard movement from mouse coverage before making another keyboard change.</li></ul>
+            <h3 class="note-heading">What happened</h3>
+            <ul class="note-list"><li>The keyboard could stay comfortable while Rapid Trigger handled the extra release and re-press travel for GunZ.</li><li>I could tell whether a miss came from movement pacing or from where my aim landed.</li><li>The method became easier to repeat because each setting had one job.</li></ul>
+            <h3 class="note-heading">What it taught me</h3>
+            <ul class="note-list"><li>Clean movement comes before judging aim during movement.</li><li>A faster keyboard result is not automatically a better full-input result.</li><li>Verify the mouse before changing a keyboard setup that is already moving correctly.</li></ul>
+          </article>
+        </section>
+
+        <section class="notebook-entry tracked-section" id="method" data-page="07" data-title="My current method">
+          <header class="entry-head"><span class="entry-no">07</span><div><h2 data-i18n="nbMethodTitle">My current method</h2><span class="entry-date" data-i18n="nbMethodDate">The short version I can repeat</span></div></header>
+          <article class="note-sheet">
+            <ol class="steps">
+              <li><strong>Start with the keyboard I can live with.</strong> <span>I use typing practice to confirm that normal use still feels normal.</span></li>
+              <li><strong>Verify the mouse separately.</strong> <span>I check pointer control, the game view, and target tracking before I use movement to judge aim.</span></li>
+              <li><strong>Save a clean GunZ base.</strong> <span>I duplicate it before testing so I can always return.</span></li>
+              <li><strong>Tune RT D for deliberate OFF.</strong> <span>I want the old input to clear without tiny lifts cutting it off.</span></li>
+              <li><strong>Tune RT A for deliberate next ON.</strong> <span>I want the next dash to match my intended re-press pace.</span></li>
+              <li><strong>Test the move alone.</strong> <span>Training tells me whether the movement itself is clean.</span></li>
+              <li><strong>Test against players.</strong> <span>PvP tells me whether the result stays clean when the pace changes.</span></li>
+              <li><strong>Check aim only after movement is clean.</strong> <span>If aim still lands short or long, I check the mouse instead of making Rapid Trigger faster.</span></li>
+              <li><strong>Keep it over time.</strong> <span>I save the last repeatable result and change one cause only when a symptom repeats.</span></li>
+            </ol>
+            <p class="callout good"><strong>The order matters:</strong> comfortable keyboard → verified mouse → clean release → clean re-press → training → PvP → long-term check.</p>
+          </article>
+        </section>
+
+        <section class="notebook-entry tracked-section" id="screenshots" data-page="08" data-title="Wootility records">
+          <header class="entry-head"><span class="entry-no">08</span><div><h2 data-i18n="nbScreensTitle">My Wootility records</h2><span class="entry-date" data-i18n="nbScreensDate">The source of the configuration values shown here</span></div></header>
+          <article class="note-sheet">
+            <p class="note"><strong>How to read these:</strong> the profile names are personal labels. The comparison below uses regular-key values. The screenshots also show that I use separate values on some keys.</p>
+            <h3 class="note-heading">Standard / everyday record</h3>
+            <div class="settings-block">
+              <div class="setting-row"><span>Regular-key actuation</span><strong>1.50 mm</strong></div>
+              <div class="setting-row"><span>RT A · Activate</span><strong>0.30 mm</strong></div>
+              <div class="setting-row"><span>RT D · Deactivate</span><strong>0.15 mm</strong></div>
+              <div class="setting-row"><span>Visible key exceptions</span><strong>L-Shift 2.40 mm · Spacebar 0.70 mm</strong></div>
+            </div>
+            <div class="screenshot-grid">
+              <figure class="screenshot-card"><img src="assets/wootility-standard-actuation.png" alt="Wootility standard profile actuation screen"><figcaption>Actuation screen. Regular keys show 1.50 mm; the image also records per-key exceptions.</figcaption></figure>
+              <figure class="screenshot-card"><img src="assets/wootility-standard-rapid-trigger.png" alt="Wootility standard profile Rapid Trigger screen"><figcaption>Rapid Trigger screen. Split sensitivity shows 0.30 mm Activate and 0.15 mm Deactivate.</figcaption></figure>
+            </div>
+            <h3 class="note-heading">GunZ-specific record</h3>
+            <div class="settings-block">
+              <div class="setting-row"><span>Regular-key actuation</span><strong>0.60 mm</strong></div>
+              <div class="setting-row"><span>RT A · Activate</span><strong>0.35 mm</strong></div>
+              <div class="setting-row"><span>RT D · Deactivate</span><strong>0.25 mm</strong></div>
+              <div class="setting-row"><span>Visible key exceptions</span><strong>L-Shift 1.90 mm · Spacebar 0.40 mm</strong></div>
+            </div>
+            <div class="screenshot-grid">
+              <figure class="screenshot-card"><img src="assets/wootility-gunz-specific-actuation.png" alt="Wootility GunZ-specific profile actuation screen"><figcaption>Actuation screen. Regular keys show 0.60 mm; the image records the intentional per-key exceptions.</figcaption></figure>
+              <figure class="screenshot-card"><img src="assets/wootility-gunz-specific-rapid-trigger.png" alt="Wootility GunZ-specific Rapid Trigger screen"><figcaption>Rapid Trigger screen. Split sensitivity shows 0.35 mm Activate and 0.25 mm Deactivate.</figcaption></figure>
+            </div>
+          </article>
+        </section>
+
+        <section class="notebook-entry tracked-section" id="history" data-page="09" data-title="What I kept from V1">
+          <header class="entry-head"><span class="entry-no">09</span><div><h2 data-i18n="nbHistoryTitle">What I kept from V1</h2><span class="entry-date" data-i18n="nbHistoryDate">The findings that still matter</span></div></header>
+          <article class="note-sheet">
+            <ul class="note-list">
+              <li>Find one repeatable problem before changing a value.</li>
+              <li>Change one setting at a time.</li>
+              <li>Training and PvP answer different questions.</li>
+              <li>Save checkpoints so a test never destroys the last good result.</li>
+              <li>Copy the process, not someone else’s final numbers.</li>
+              <li>Keep definitions separate from personal conclusions.</li>
+            </ul>
+            <p class="callout"><strong>What changed:</strong> the public site now stays dedicated to Rapid Trigger. This notebook holds the personal full-input story.</p>
+          </article>
+        </section>
+
+        <section class="notebook-entry tracked-section" id="limits" data-page="10" data-title="Evidence & limits">
+          <header class="entry-head"><span class="entry-no">10</span><div><h2 data-i18n="nbLimitsTitle">Evidence and limits</h2><span class="entry-date" data-i18n="nbLimitsDate">What I know · what I observed · what I am not claiming</span></div></header>
+          <article class="note-sheet">
+            <h3 class="note-heading">Documented behavior</h3>
+            <ul class="note-list"><li>Rapid Trigger uses movement direction and distance for repeated OFF and ON states.</li><li>Split sensitivity provides separate deactivate/upstroke and activate/downstroke distances.</li><li>Smaller distances require less physical travel.</li></ul>
+            <h3 class="note-heading">My observations</h3>
+            <ul class="note-list"><li>A comfortable first actuation and useful Rapid Trigger distances can live in the same profile.</li><li>RT D and RT A feel different when I isolate the release and re-press.</li><li>Mouse verification prevents me from tuning clean keyboard movement around an aim problem.</li></ul>
+            <h3 class="note-heading">What I am not claiming</h3>
+            <ul class="note-list"><li>My profiles are correct for every player.</li><li>A millimeter value equals a fixed amount of time.</li><li>Every GunZ miss is caused by a keyboard or mouse setting.</li><li>Personal testing replaces measured game or server data.</li></ul>
+            <div class="resource-grid"><a class="resource-link" href="https://help.wooting.io/article/102-how-to-set-up-rapid-trigger" target="_blank" rel="noopener">Wooting · How to Set Up Rapid Trigger <span>↗</span></a><a class="resource-link" href="https://wooting.io/rapid-trigger" target="_blank" rel="noopener">Wooting · Rapid Trigger <span>↗</span></a></div>
+          </article>
+        </section>
+
+        <section class="notebook-entry tracked-section" id="help" data-page="11" data-title="Help & contact">
+          <header class="entry-head"><span class="entry-no">11</span><div><h2 data-i18n="nbHelpTitle">Questions are welcome.</h2><span class="entry-date" data-i18n="nbHelpDate">Best way to reach me</span></div></header>
+          <article class="note-sheet"><ul class="note-list"><li>If a step does not make sense, ask.</li><li>If your result does not match mine, that is useful information—not a failure.</li><li>Tell me the repeated symptom, which setting you changed, and what happened after the change.</li></ul><p class="callout good"><strong>Alpha Discord:</strong> <a href="https://discord.gg/tKZ5mjnEpj" target="_blank" rel="noopener">Join the server and ask me directly ↗</a></p><a class="button primary remember-position" href="index.html">Return to the Rapid Trigger guide</a></article>
+        </section>
+      </div>
+    </main>
+
+  <aside class="term-panel" id="termPanel" role="dialog" aria-labelledby="termPanelTitle" aria-hidden="true"><div class="term-panel-head"><span class="term-panel-label">Guide term</span><button class="term-panel-close" id="termPanelClose" type="button" aria-label="Close definition">×</button></div><h2 id="termPanelTitle"></h2><div id="termPanelBody"></div><a class="term-panel-glossary remember-position" id="termPanelLink" href="index.html#glossary">Open the full glossary entry →</a></aside>
+
+  <footer class="site-footer"><div class="help-strip"><span>Need help with the method?</span><a href="https://discord.gg/tKZ5mjnEpj" target="_blank" rel="noopener">Join Alpha on Discord ↗</a></div><span>Personal research notes by HYPNATIQ</span></footer>
+  <a class="back-to-top" id="backToTop" href="#top" aria-label="Back to top">↑</a>
+  <button class="return-to-reading" id="returnToReading" type="button">← Back to where I was reading</button>
+  <script src="assets/revision-24-translations.js"></script>
   <script src="assets/site.js"></script>
 </body>
 </html>

@@ -4,339 +4,249 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://gunzinputlab.github.io/">
-  <meta name="description" content="A complete GunZ input tuning method: understand each control, verify mouse movement, preserve typing consistency, then tune Rapid Trigger around clean movement.">
+  <meta name="description" content="A plain-language guide to what Rapid Trigger changes in GunZ, what can go wrong, and how to tune RT D and RT A without guessing.">
   <meta name="theme-color" content="#05080d">
   <meta name="author" content="HYPNATIQ">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rapid Trigger for GunZ">
-  <meta property="og:title" content="Rapid Trigger for GunZ — Complete Input Method">
-  <meta property="og:description" content="Verify the mouse. Protect normal typing. Tune Rapid Trigger around movement you can prove.">
+  <meta property="og:title" content="Rapid Trigger for GunZ">
+  <meta property="og:description" content="What Rapid Trigger changes in GunZ, what can go wrong, and how to tune it without guessing.">
   <meta property="og:url" content="https://gunzinputlab.github.io/">
   <meta property="og:image" content="https://gunzinputlab.github.io/assets/social-preview.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://gunzinputlab.github.io/assets/social-preview.png">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/site.css">
-  <title>Rapid Trigger for GunZ — Complete Input Method</title>
+  <title>Rapid Trigger for GunZ</title>
 </head>
-<body class="has-chapter-rail">
-  <a class="skip-link" href="#main" data-i18n="skip">Skip to the method</a>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to the guide</a>
 
   <header class="site-header" id="top">
-    <div class="header-inner">
-      <a class="brand" href="#top" aria-label="Rapid Trigger for GunZ home">
-        <img src="assets/favicon.png" alt="">
-        <span class="brand-copy"><strong>Rapid Trigger for GunZ</strong><span data-i18n="brandSub">Mouse · keyboard · movement</span></span>
-      </a>
-      <nav class="top-nav" id="topNav" aria-label="Primary navigation">
-        <a href="#method" data-i18n="navMethod">Method</a>
-        <a href="#definitions" data-i18n="navDefinitions">Definitions</a>
-        <a href="#mouse" data-i18n="navMouse">Mouse</a>
-        <a href="#keyboard" data-i18n="navKeyboard">Keyboard</a>
-        <a href="#validate" data-i18n="navValidate">Validation</a>
-        <a href="research-notebook.html" data-i18n="navNotebook">Research notebook</a>
-      </nav>
-      <div class="header-tools">
-        <div class="language-wrap">
-          <label class="sr-only" for="languageSelect" data-i18n="languageLabel">Language</label>
-          <select class="language-select" id="languageSelect" aria-label="Language">
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="es-PE">Español (Perú)</option>
-            <option value="pt-BR">Português (Brasil)</option>
-            <option value="es-VE">Español (Venezuela)</option>
-            <option value="ko">한국어</option>
-            <option value="ja">日本語</option>
-            <option value="zh-CN">简体中文</option>
-          </select>
-        </div>
-        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to light mode">◐</button>
-        <button class="icon-button menu-button" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">≡</button>
-      </div>
+    <a class="brand" href="#home" aria-label="Rapid Trigger for GunZ home">
+      <img class="brand-mark" src="assets/favicon.png" alt="">
+      <span><strong>Rapid Trigger for GunZ</strong><small data-i18n="brandSub">Build · Test · Refine</small></span>
+    </a>
+    <div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div>
+    <div class="header-tools">
+      <label class="sr-only" for="languageSelect" data-i18n="languageLabel">Language</label>
+      <select class="language-select" id="languageSelect" aria-label="Language">
+        <option value="en">English</option><option value="es">Español</option><option value="es-PE">Español (Perú)</option><option value="pt-BR">Português (Brasil)</option><option value="es-VE">Español (Venezuela)</option><option value="ko">한국어</option><option value="ja">日本語</option><option value="zh-CN">简体中文</option>
+      </select>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">Light</button>
+      <span class="page-indicator" id="pageIndicator">Page 01 / 13</span>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="Open guide contents" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <main id="main">
-    <aside class="chapter-rail" aria-label="Complete method chapters">
-      <div class="chapter-rail-head"><strong>RAPID TRIGGER<br>FOR GUNZ</strong><span data-i18n="buildTestRefine">Build · Test · Refine</span></div>
-      <p data-i18n="completeMethodLabel">Complete method</p>
-      <a href="#method"><span>00</span><b data-i18n="navMethod">Start here</b></a>
-      <a href="#definitions"><span>01</span><b data-i18n="navDefinitions">Definitions</b></a>
-      <a href="#environment"><span>02</span><b data-i18n="flow1">Environment</b></a>
-      <a href="#mouse"><span>03</span><b data-i18n="navMouse">Mouse baseline</b></a>
-      <a href="#typing"><span>04</span><b data-i18n="flow4">Typing baseline</b></a>
-      <a href="#keyboard"><span>05</span><b data-i18n="navKeyboard">Rapid Trigger</b></a>
-      <a href="#training"><span>06</span><b data-i18n="navTraining">Training test</b></a>
-      <a href="#validate"><span>07</span><b data-i18n="navValidate">PvP validation</b></a>
-      <a href="#troubleshoot"><span>08</span><b data-i18n="navTroubleshoot">Troubleshooting</b></a>
-      <a href="#save"><span>09</span><b data-i18n="navSave">Checkpoints</b></a>
-      <a href="#glossary"><span>10</span><b data-i18n="navGlossary">Glossary</b></a>
-      <a href="#evidence"><span>11</span><b data-i18n="navEvidence">Evidence</b></a>
-      <div class="chapter-rail-action"><a href="research-notebook.html" data-i18n="navNotebook">Research notebook</a></div>
-    </aside>
-    <div class="page-shell">
-      <section class="hero">
-        <div>
-          <span class="eyebrow" data-i18n="heroEye">Complete input method · Revision 2.2</span>
-          <h1 data-i18n-html="heroTitle">Tune the whole<br><span>input chain.</span></h1>
-          <p class="hero-lead" data-i18n="heroLead">A keyboard cannot prove that your movement is correct if the mouse cannot keep the opponent in view. Verify the mouse first, keep actuation comfortable for normal typing, then use Rapid Trigger only for the movement timing it actually controls.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#method" data-i18n="startMethod">Start the method</a>
-            <a class="button" href="#definitions" data-i18n="openDefinitions">Understand the controls</a>
-            <a class="button" href="research-notebook.html" data-i18n="readResearch">Read the reasoning</a>
-          </div>
-        </div>
-        <aside class="method-map" aria-label="Method order">
-          <div class="method-map-head" data-i18n="orderLabel">The order matters</div>
-          <div class="method-step"><span class="step-no">01</span><span><strong data-i18n="stepView">Lock the view</strong><small data-i18n="stepViewSub">Resolution, aspect ratio, FOV, camera</small></span><i class="signal"></i></div>
-          <div class="method-step"><span class="step-no">02</span><span><strong data-i18n="stepMouse">Verify the mouse</strong><small data-i18n="stepMouseSub">Daily DPI, tracking, cm/360</small></span><i class="signal"></i></div>
-          <div class="method-step"><span class="step-no">03</span><span><strong data-i18n="stepType">Protect typing</strong><small data-i18n="stepTypeSub">Comfortable fixed actuation</small></span><i class="signal"></i></div>
-          <div class="method-step"><span class="step-no">04</span><span><strong data-i18n="stepMove">Tune movement</strong><small data-i18n="stepMoveSub">RT D release, then RT A pace</small></span><i class="signal"></i></div>
-          <div class="method-step"><span class="step-no">05</span><span><strong data-i18n="stepFight">Validate in fights</strong><small data-i18n="stepFightSub">Movement pass, then aim pass</small></span><i class="signal"></i></div>
-        </aside>
-      </section>
-      <p class="principle-bar" data-i18n-html="principle"><strong>The purpose is an edge—not a “gaming-only” keyboard.</strong> The same board should stay dependable for typing, work, and GunZ.</p>
-
-      <section class="chapter" id="method">
-        <header class="chapter-header">
-          <span class="chapter-index" data-i18n="indexMethod">00 / METHOD</span>
-          <div><span class="kicker" data-i18n="methodKicker">One chain, one variable at a time</span><h2 data-i18n="methodTitle">What a correct result has to prove.</h2><p class="chapter-intro" data-i18n="methodIntro">A passing keyboard test is only one part of a passing input setup. The final result must survive typing, isolated movement, tracking, and real combat without one adjustment hiding a problem in another.</p></div>
-        </header>
-        <div class="content-narrow">
-          <section class="reader-bridge" aria-labelledby="readerBridgeTitle">
-            <span class="status-label" data-i18n="readerBridgeKicker">Read from where you are</span>
-            <h3 id="readerBridgeTitle" data-i18n="readerBridgeTitle">One method, four useful entry points.</h3>
-            <p class="muted" data-i18n="readerBridgeIntro">The order does not change by audience. What changes is the context you may need before the same test makes sense.</p>
-            <div class="reader-grid">
-              <article><b data-i18n="lensReader">First-time reader</b><p data-i18n="lensReaderP">Start with the order, not the numbers. Each section explains what a setting changes before it asks you to test it.</p></article>
-              <article><b data-i18n="lensNewPlayer">New GunZ player</b><p data-i18n="lensNewPlayerP">This guide does not teach every movement. Learn one sequence you can repeat, then use the method to remove input uncertainty around it.</p></article>
-              <article><b data-i18n="lensVeteran">Veteran GunZ player</b><p data-i18n="lensVeteranP">Keep the habits that already work. Change a value only when the same symptom repeats, and save checkpoints instead of copying my final numbers.</p></article>
-              <article><b data-i18n="lensKeyboard">Keyboard enthusiast</b><p data-i18n="lensKeyboardP">GunZ receives ordinary key ON and OFF states. The millimeter settings change when those states happen; they do not measure skill or server timing.</p></article>
-            </div>
-          </section>
-          <aside class="research-prompt">
-            <div><span class="status-label" data-i18n="whyThisOrder">Why this order?</span><p data-i18n="researchPrompt">If a step feels arbitrary, use the Research Notebook. It explains what each test isolates, why the mouse must be verified before the keyboard result is trusted, and which findings are personal rather than universal.</p></div>
-            <a class="button" href="research-notebook.html" data-i18n="openReasoning">Open the reasoning</a>
-          </aside>
-          <div class="flow-strip" aria-label="Full tuning flow">
-            <div class="flow-node"><b>01</b><span data-i18n="flow1">Environment</span><small data-i18n="flow1s">Make the test repeatable</small></div>
-            <div class="flow-node"><b>02</b><span data-i18n="flow2">DPI + view</span><small data-i18n="flow2s">Match what you actually use</small></div>
-            <div class="flow-node"><b>03</b><span data-i18n="flow3">Base sens</span><small data-i18n="flow3s">Track while standing still</small></div>
-            <div class="flow-node"><b>04</b><span data-i18n="flow4">Actuation</span><small data-i18n="flow4s">Keep normal typing fluent</small></div>
-            <div class="flow-node"><b>05</b><span data-i18n="flow5">Rapid Trigger</span><small data-i18n="flow5s">Make movement repeatable</small></div>
-            <div class="flow-node"><b>06</b><span data-i18n="flow6">PvP</span><small data-i18n="flow6s">Verify the pair together</small></div>
-          </div>
-          <div class="grid-3">
-            <article class="panel accent-top"><h3 data-i18n="proofMouse">The mouse proves coverage</h3><p class="muted" data-i18n="proofMouseP">Can you keep a fast opponent on screen and place the crosshair without repeated over- or undershoot?</p></article>
-            <article class="panel accent-top accent-violet"><h3 data-i18n="proofKeyboard">The keyboard proves execution</h3><p class="muted" data-i18n="proofKeyboardP">Can the movement sequence turn ON, release to OFF, and reactivate cleanly at your natural rhythm?</p></article>
-            <article class="panel accent-top accent-green"><h3 data-i18n="proofCombined">Combat proves the pair</h3><p class="muted" data-i18n="proofCombinedP">Can clean movement and verified tracking stay correct at the same time under pressure?</p></article>
-          </div>
-          <div class="evidence-key" aria-label="How claims are labeled">
-            <div><span class="badge method" data-i18n="claimUniversal">Universal concept</span><p data-i18n="claimUniversalP">Device or input behavior that does not depend on my personal values.</p></div>
-            <div><span class="badge current" data-i18n="claimGunz">GunZ application</span><p data-i18n="claimGunzP">How I apply or test that concept inside GunZ.</p></div>
-            <div><span class="badge personal" data-i18n="claimPersonal">Personal finding</span><p data-i18n="claimPersonalP">A result produced by my repeated testing—not a preset.</p></div>
-            <div><span class="badge history" data-i18n="claimHistory">Historical checkpoint</span><p data-i18n="claimHistoryP">An older result kept to explain the path and support rollback.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="chapter" id="definitions">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexDefinitions">01 / DEFINE</span><div><span class="kicker" data-i18n="definitionsKicker">Know the event before changing the value</span><h2 data-i18n="definitionsTitle">Give every control one job.</h2><p class="chapter-intro" data-i18n="definitionsIntro">These settings describe different parts of one press cycle. Keeping them separate prevents an aiming problem, a release problem, and a reactivation problem from being tuned as though they were the same thing.</p></div></header>
-        <div class="content-narrow">
-          <div class="definition-grid">
-            <article class="definition-card is-actuation"><button class="term-link" type="button" data-term-target="term-actuation" data-i18n="actuation">Actuation</button><dl><div><dt data-i18n="whatItControls">What it controls</dt><dd data-i18n="actuationControls">The first ON while pressing from the released top.</dd></div><div><dt data-i18n="whyItMatters">Why it matters</dt><dd data-i18n="actuationWhy">It sets everyday typing sensitivity before Rapid Trigger is involved.</dd></div><div><dt data-i18n="changeWhen">Change it when</dt><dd data-i18n="actuationWhen">Typing is repeatedly too sensitive, hesitant, or inaccurate.</dd></div></dl></article>
-            <article class="definition-card is-rtd"><button class="term-link" type="button" data-term-target="term-rtd" data-i18n="rtdTitle">RT D · Deactivate</button><dl><div><dt data-i18n="whatItControls">What it controls</dt><dd data-i18n="rtdControls">The upward release distance before the active key reports OFF.</dd></div><div><dt data-i18n="whyItMatters">Why it matters</dt><dd data-i18n="rtdWhy">The previous press must turn OFF before a clean next press can exist.</dd></div><div><dt data-i18n="changeWhen">Change it when</dt><dd data-i18n="rtdWhen">The first action works but later releases repeatedly fail to clear.</dd></div></dl></article>
-            <article class="definition-card is-rta"><button class="term-link" type="button" data-term-target="term-rta" data-i18n="rtaTitle">RT A · Activate</button><dl><div><dt data-i18n="whatItControls">What it controls</dt><dd data-i18n="rtaControls">The downward distance after reversal before the next ON.</dd></div><div><dt data-i18n="whyItMatters">Why it matters</dt><dd data-i18n="rtaWhy">It changes how soon a released key can reactivate at your natural rhythm.</dd></div><div><dt data-i18n="changeWhen">Change it when</dt><dd data-i18n="rtaWhen">Movement is clean, releases pass, and the same pacing delay repeats.</dd></div></dl></article>
-          </div>
-          <div class="cycle" aria-label="Rapid Trigger input cycle">
-            <div class="cycle-step actuation"><b>01</b><strong data-i18n="cycle1">First ON</strong><small data-i18n="cycle1s">Fixed actuation from the released top.</small></div>
-            <div class="cycle-step"><b>02</b><strong data-i18n="cycle2">Continue down</strong><small data-i18n="cycle2s">The key stays ON toward bottom-out.</small></div>
-            <div class="cycle-step rt-d"><b>03 · RT D</b><strong data-i18n="cycle3">Release to OFF</strong><small data-i18n="cycle3s">Upward distance required before the key turns OFF.</small></div>
-            <div class="cycle-step"><b>04</b><strong data-i18n="cycle4">Reverse</strong><small data-i18n="cycle4s">Your finger stops rising and starts pressing again.</small></div>
-            <div class="cycle-step rt-a"><b>05 · RT A</b><strong data-i18n="cycle5">Next ON</strong><small data-i18n="cycle5s">Downward distance after reversal before reactivation.</small></div>
-          </div>
-          <div class="callout" data-i18n-html="definitionsRule"><strong>Read the cycle literally:</strong> RT D creates OFF. Reversal changes direction. RT A creates the next ON. Clearing RT D does not activate the key again by itself.</div>
-          <div class="inline-links"><a href="#cycle-tester" data-i18n="openCycleTester">Open the Rapid Trigger Cycle Tester ↓</a><a href="#glossary" data-i18n="openGlossary">Open the full glossary ↓</a></div>
-        </div>
-      </section>
-
-      <section class="chapter" id="environment">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexLock">02 / LOCK</span><div><span class="kicker" data-i18n="envKicker">Before touching a value</span><h2 data-i18n="envTitle">Stabilize the test environment.</h2><p class="chapter-intro" data-i18n="envIntro">A sensitivity or Rapid Trigger result only means something when the surrounding conditions are recorded and held still.</p></div></header>
-        <div class="content-narrow grid-2">
-          <article class="panel"><h3 data-i18n="recordThese">Record these first</h3><ul class="check-list">
-            <li data-i18n="rec1">GunZ client/server and map</li><li data-i18n="rec2">Resolution and aspect ratio</li><li data-i18n="rec3">FOV and camera distance</li><li data-i18n="rec4">Crosshair and any on-screen dot</li><li data-i18n="rec5">Mouse DPI, polling rate, Windows pointer settings, and acceleration/raw-input state</li><li data-i18n="rec6">Keyboard mode, SOCD state, actuation, RT A, and RT D</li>
-          </ul></article>
-          <article class="panel accent-top accent-amber"><h3 data-i18n="resolutionTitle">Resolution changes perception, not hardware DPI</h3><p class="muted" data-i18n="resolutionP1">Your mouse DPI is set by the sensor or mouse software. Moving from a 16:9 desktop to a 4:3 or stretched GunZ image can still make horizontal motion look faster, narrower, or unfamiliar because the displayed geometry changed.</p><p class="muted" data-i18n="resolutionP2">Use the aspect ratio you actually play. A desktop icon-pointing drill can help you notice visual mismatch, but treat it as a perception check—not a DPI measurement. Confirm the final result inside GunZ.</p></article>
-        </div>
-        <div class="content-narrow term-note" data-i18n="envPlainTerms">Plain terms: FOV means field of view—how much of the game world fits in the view. Camera distance is how far the view sits behind the character. Polling rate is how often the mouse reports. Raw input means the game reads mouse movement without Windows pointer scaling.</div>
-      </section>
-
-      <section class="chapter" id="mouse">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexMouse">03 / MOUSE</span><div><span class="kicker" data-i18n="mouseKicker">Build the aiming base first</span><h2 data-i18n="mouseTitle">Verify DPI and sensitivity before tuning movement.</h2><p class="chapter-intro" data-i18n="mouseIntro">Start with the DPI you already use every day. The goal is not a fashionable number—it is a stable physical reference you can reproduce.</p></div></header>
-        <div class="content-narrow">
-          <div class="term-note" data-i18n="mouseIsolation">Why stand still: it removes keyboard movement from the first aiming test. Tracking means following a moving player with the crosshair. Cm/360 is the physical mouse distance needed to turn the view one full rotation.</div>
-          <div class="grid-2">
-            <article class="panel"><h3 data-i18n="mouseProtocol">Mouse protocol</h3><ol class="number-list"><li data-i18n="mp1">Choose one familiar hardware DPI and disable accidental DPI switching.</li><li data-i18n="mp2">Load your real GunZ resolution, aspect ratio, FOV, and camera settings.</li><li data-i18n="mp3">Stand still. Track moving players with the mouse only; do not judge keyboard timing yet.</li><li data-i18n="mp4">Measure the result in cm/360 with Mouse-Sensitivity.com or a physical 360° test.</li><li data-i18n="mp5">Work in 0.1 cm steps. Lower cm/360 is faster; higher cm/360 is slower.</li><li data-i18n="mp6">Freeze the first value that repeatedly keeps targets in view without repeated over- or undershoot.</li></ol></article>
-            <article class="panel"><h3 data-i18n="whyCm">Why use cm/360</h3><p class="muted" data-i18n="whyCmP">A GunZ sensitivity number has no physical meaning by itself. The same +5 change produces a different effective change at 850 DPI than at 1800 DPI. Cm/360 turns the result into a physical distance you can compare deliberately.</p><div class="formula"><span data-i18n="formulaEdpi">eDPI = DPI × in-game sensitivity</span><br><span data-i18n="formulaNewSens">new sensitivity = eDPI ÷ new DPI</span></div><p class="muted" data-i18n="edpiLimit">Use eDPI only inside the same game and input pipeline. It is not a universal cross-game unit because games can use different yaw and FOV behavior.</p></article>
-          </div>
-
-          <div class="callout" data-i18n-html="incrementExample"><strong>Why fixed sensitivity steps can mislead:</strong> +5 sensitivity at 850 DPI changes eDPI by 4,250. The same +5 at 1,800 DPI changes it by 9,000—more than twice as much. A 0.1 cm/360 target expresses the physical change you actually meant.</div>
-
-          <article class="panel calculator" id="converter">
-            <div><span class="status-label" data-i18n="toolLabel">Same-game converter</span><h3 data-i18n="converterTitle">Keep the same eDPI when changing DPI</h3><p class="muted" data-i18n="converterIntro">Enter your current DPI and GunZ sensitivity, then the DPI you want to use.</p></div>
-            <div class="field-grid">
-              <div class="field"><label for="currentDpi" data-i18n="currentDpi">Current DPI</label><input id="currentDpi" type="number" min="1" step="1" value="850" inputmode="decimal"></div>
-              <div class="field"><label for="currentSens" data-i18n="currentSens">Current GunZ sensitivity</label><input id="currentSens" type="number" min="0" step="1" value="5250" inputmode="decimal"></div>
-              <div class="field"><label for="newDpi" data-i18n="newDpi">New DPI</label><input id="newDpi" type="number" min="1" step="1" value="1800" inputmode="decimal"></div>
-            </div>
-            <div class="result-box" aria-live="polite">
-              <div class="result-item"><span data-i18n="edpiResult">eDPI</span><output id="edpiOutput">4,462,500</output></div>
-              <div class="result-item"><span data-i18n="newSensResult">Equivalent sensitivity</span><output id="sensOutput">2,479.17 (≈ 2,479)</output></div>
-            </div>
-            <div class="inline-links"><a href="https://www.mouse-sensitivity.com/" target="_blank" rel="noopener" data-i18n="openMouseSensitivity">Open Mouse-Sensitivity.com ↗</a></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="chapter" id="typing">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexType">04 / TYPE</span><div><span class="kicker" data-i18n="typingKicker">The everyday baseline</span><h2 data-i18n="typingTitle">Find an actuation point you can still type on.</h2><p class="chapter-intro" data-i18n="typingIntro">Your Hall-effect keyboard is already a gaming peripheral. The useful advantage comes from tuning it without making normal work worse.</p></div></header>
-        <div class="content-narrow">
-          <div class="term-note" data-i18n="typingPlainTerms">Typing terms: WPM is words per minute; accuracy is how much you typed without correction. The passing value is not your fastest score—it is the shallowest actuation that keeps both near your normal range during repeated tests and real writing.</div>
-          <div class="grid-2">
-            <article class="panel accent-top accent-violet"><h3 data-i18n="typingTest">Typing test</h3><ol class="number-list"><li data-i18n="tt1">Turn Rapid Trigger off and use one fixed actuation value across the regular keys.</li><li data-i18n="tt2">Warm up, then run several familiar Monkeytype tests—not one lucky score.</li><li data-i18n="tt3">Watch both WPM and mistakes. Keep the shallowest value that preserves your normal fluency.</li><li data-i18n="tt4">Retest in real writing: email, chat, editing, and any work where corrections matter.</li><li data-i18n="tt5">Save this as the typing baseline before creating the GunZ profile.</li></ol></article>
-            <article class="panel"><span class="status-label" data-i18n="personalObservation">Personal observation</span><h3 data-i18n="interviewTitle">0.60 mm failed the real-world test</h3><p class="muted" data-i18n="interviewP">At 0.60 mm I made too many mistakes during an interview and could not type as fluently as usual. Returning the regular keys to 1.50 mm matched my work keyboard more closely and restored the consistency I needed.</p><div class="callout good" data-i18n-html="lesson"><strong>The lesson:</strong> a value that feels fast in GunZ can still be wrong for the keyboard as a whole. Actuation must pass normal typing before Rapid Trigger is allowed to compensate for movement.</div><div class="inline-links"><a href="https://monkeytype.com/" target="_blank" rel="noopener" data-i18n="openMonkeytype">Open Monkeytype ↗</a></div></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="chapter" id="keyboard">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexMove">05 / RAPID TRIGGER</span><div><span class="kicker" data-i18n="keyboardKicker">Rapid Trigger has two separate jobs</span><h2 data-i18n="keyboardTitle">Confirm the cycle before tuning movement.</h2><p class="chapter-intro" data-i18n="keyboardIntro">Actuation controls the first press from the top. Rapid Trigger Deactivate controls when the released key turns OFF. Rapid Trigger Activate controls how far you press back down after reversal before the next ON.</p></div></header>
-        <div class="content-narrow">
-          <div class="term-note" data-i18n="keyboardPlainTerms">Input states in plain language: ON means GunZ sees the key as pressed; OFF means GunZ sees it as released. Actuation controls the first ON. RT D creates the later OFF. After your finger reverses direction, RT A creates the next ON.</div>
-          <div class="grid-2">
-            <article class="panel accent-top accent-amber"><h3><button class="term-link" type="button" data-term-target="term-rtd" data-i18n="rtdTitle">RT D · Deactivate</button></h3><p class="muted" data-i18n="rtdP">This is release clearance. Lowering it means less upward lift is needed to turn the key OFF. Change it when the first action works but later releases repeatedly fail, tumble, or stay held. Too low can make the release feel nervous or uneven.</p></article>
-            <article class="panel accent-top"><h3><button class="term-link" type="button" data-term-target="term-rta" data-i18n="rtaTitle">RT A · Activate</button></h3><p class="muted" data-i18n="rtaP">This is reactivation distance after reversal. Lowering it makes the next ON happen sooner. Change it when the movement is already clean but repeatedly cannot keep pace. Too low can outrun your rhythm or create unwanted repeats.</p></article>
-          </div>
-          <article class="tester-panel" id="cycle-tester">
-            <header><div><span class="status-label" data-i18n="interactiveTool">Interactive tool · preserved from the original guide</span><h3 data-i18n="testerTitle">Rapid Trigger Cycle Tester</h3><p class="muted" data-i18n="testerIntro">Use the animated key path to separate first actuation, RT D release, reversal, and RT A reactivation before changing a live profile.</p></div><a class="button" href="assets/rapid-trigger-cycle-tester.html" target="_blank" rel="noopener" data-i18n="openTesterTab">Open tester in its own tab ↗</a></header>
-            <div class="tester-frame-wrap"><iframe class="tester-frame" src="assets/rapid-trigger-cycle-tester.html" title="Rapid Trigger Cycle Tester" loading="lazy"></iframe></div>
-          </article>
-          <article class="panel tester-guide"><h3 data-i18n="testerUseTitle">What the tester should prove</h3><ul class="check-list"><li data-i18n="testerUse1">Press through actuation and confirm the first ON.</li><li data-i18n="testerUse2">Release upward until RT D produces OFF.</li><li data-i18n="testerUse3">Reverse direction only after you can see the release event separately.</li><li data-i18n="testerUse4">Press downward through RT A and confirm the next ON.</li></ul><div class="callout warning" data-i18n-html="testerLimit"><strong>Use it as a model, not a measurement:</strong> the tester explains event order and available travel. Your finger rhythm and passing values still have to be verified through typing, training, and PvP.</div></article>
-        </div>
-      </section>
-
-      <section class="chapter" id="training">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexTraining">06 / TRAIN</span><div><span class="kicker" data-i18n="trainingKicker">Isolate keyboard execution</span><h2 data-i18n="trainingTitle">Make one familiar movement repeatable by itself.</h2><p class="chapter-intro" data-i18n="trainingIntro">Training answers one narrow question: can the movement complete cleanly under controlled conditions? It does not prove that aim or opponent coverage is correct.</p></div></header>
-        <div class="content-narrow">
-          <div class="workflow-grid">
-            <article><span>01</span><h3 data-i18n="trainingSetup">Set up</h3><ul><li data-i18n="trainingSetup1">Use one move you already know.</li><li data-i18n="trainingSetup2">Choose level ground and warm up first.</li><li data-i18n="trainingSetup3">Freeze mouse, view, actuation, and RT D.</li></ul></article>
-            <article><span>02</span><h3 data-i18n="trainingTest">Test</h3><ul><li data-i18n="trainingTest1">Run chains of at least five for about 15 minutes.</li><li data-i18n="trainingTest2">Count dead dashes, tumbles, held inputs, and unwanted repeats.</li><li data-i18n="trainingTest3">Ignore one-off mistakes; look for one repeated symptom.</li></ul></article>
-            <article><span>03</span><h3 data-i18n="trainingDecision">Decide</h3><ul><li data-i18n="trainingDecision1">Lower RT A one small step only when clean movement is repeatedly behind.</li><li data-i18n="trainingDecision2">Change RT D only when later releases repeatedly fail.</li><li data-i18n="trainingDecision3">Save the first repeatable result before PvP.</li></ul></article>
-          </div>
-          <div class="callout good" data-i18n-html="trainingPass"><strong>Training pass:</strong> roughly 90–95% clean execution across a real session, without one repeated failure pattern. This proves keyboard execution only.</div>
-        </div>
-      </section>
-
-      <section class="chapter" id="validate">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexFight">07 / FIGHT</span><div><span class="kicker" data-i18n="validateKicker">The combined test</span><h2 data-i18n="validateTitle">Validate movement and aim in separate passes.</h2><p class="chapter-intro" data-i18n="validateIntro">The keyboard should make movement reliable; the mouse should keep the fight visible and place the shot. Test both in combat, but never change both during the same comparison.</p></div></header>
-        <div class="content-narrow">
-          <div class="term-note" data-i18n="validationPlainTerms">For this method, clean movement means the intended GunZ sequence completes without repeated dead dashes, tumbles, held inputs, or accidental repeats. Aim placement means where the crosshair lands after the mouse follows that movement.</div>
-          <div class="split-test">
-            <article class="test-lane"><span class="lane-label" data-i18n="movementPass">Pass A · Movement</span><h3 data-i18n="movementQuestion">Does the move stay clean and keep pace?</h3><p class="muted" data-i18n="movementP">Freeze DPI, cm/360, view settings, actuation, and RT D. Fight familiar opponents. If the character repeatedly arrives behind even though the sequence is clean, adjust RT A one step.</p></article>
-            <article class="test-lane"><span class="lane-label" data-i18n="aimPass">Pass B · Aim</span><h3 data-i18n="aimQuestion">Can the mouse keep and place the target?</h3><p class="muted" data-i18n="aimP">Freeze the passing keyboard. Use a visible center dot if your client has no crosshair. If opponents repeatedly leave the screen or the crosshair lands short/long, adjust cm/360 by 0.1 cm and retest.</p></article>
-          </div>
-          <div class="callout good" data-i18n-html="combinedPass"><strong>Combined pass:</strong> movement stays executable, the opponent stays within controllable mouse coverage, and the crosshair does not show one repeated directional miss. Keep the pair unchanged before troubleshooting anything else.</div>
-        </div>
-      </section>
-
-      <section class="chapter" id="troubleshoot">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexTroubleshoot">08 / DIAGNOSE</span><div><span class="kicker" data-i18n="troubleshootKicker">Follow the repeated symptom</span><h2 data-i18n="troubleshootTitle">Change the control that owns the failure.</h2><p class="chapter-intro" data-i18n="troubleshootIntro">One miss is noise. A repeated pattern is evidence. Keep every unrelated value fixed, change one control, and return to the last passing checkpoint when the result becomes unclear.</p></div></header>
-        <div class="content-narrow">
-          <div class="callout warning" data-i18n-html="directionRule"><strong>Direction rule:</strong> lower cm/360 makes the view faster; higher cm/360 makes it slower. Repeated undershoot or inability to keep up can justify a slightly lower cm/360. Repeated overshoot can justify a slightly higher cm/360.</div>
-          <div class="comparison">
-            <table>
-              <thead><tr><th data-i18n="symptom">Repeated symptom</th><th data-i18n="investigate">Investigate</th><th data-i18n="nextTest">Next controlled test</th><th data-i18n="keepFixed">Keep fixed</th></tr></thead>
-              <tbody>
-                <tr><td data-i18n="s1">Typing becomes error-prone</td><td><button class="term-link" type="button" data-term-target="term-actuation" data-i18n="actuation">Actuation</button></td><td data-i18n="s1t">Raise it and repeat normal typing tests</td><td data-i18n="s1f">Rapid Trigger off</td></tr>
-                <tr><td data-i18n="s2">First move works; later releases fail</td><td><button class="term-link" type="button" data-term-target="term-rtd">RT D</button></td><td data-i18n="s2t">Lower release distance carefully</td><td data-i18n="s2f">Actuation, RT A, mouse</td></tr>
-                <tr><td data-i18n="s3">Movement is clean but repeatedly behind</td><td><button class="term-link" type="button" data-term-target="term-rta">RT A</button></td><td data-i18n="s3t">Lower reactivation one step</td><td data-i18n="s3f">RT D, actuation, mouse</td></tr>
-                <tr><td data-i18n="s4">Movement is clean; target leaves the screen</td><td><button class="term-link" type="button" data-term-target="term-cm360" data-i18n="sensitivity">Sensitivity</button></td><td data-i18n="s4t">Lower cm/360 by 0.1 cm</td><td data-i18n="s4f">Complete keyboard profile</td></tr>
-                <tr><td data-i18n="s5">Crosshair repeatedly passes the target</td><td><button class="term-link" type="button" data-term-target="term-cm360" data-i18n="sensitivity">Sensitivity</button></td><td data-i18n="s5t">Raise cm/360 by 0.1 cm</td><td data-i18n="s5f">Complete keyboard profile</td></tr>
-                <tr><td data-i18n="s6">One miss, one tumble, unclear cause</td><td><button class="term-link" type="button" data-term-target="term-checkpoint" data-i18n="checkpoint">Checkpoint</button></td><td data-i18n="s6t">Do not tune yet; collect a repeated pattern</td><td data-i18n="s6f">Everything</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section class="chapter" id="save">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexSave">09 / SAVE</span><div><span class="kicker" data-i18n="saveKicker">Keep a rollback point</span><h2 data-i18n="saveTitle">Save the result, then test it over time.</h2><p class="chapter-intro" data-i18n="saveIntro">A profile is proven by repeatability, not by one strong match. Keep the typing baseline untouched, duplicate a GunZ base, and save every passing stage.</p></div></header>
-        <div class="content-narrow">
-          <div class="record-grid">
-            <div class="record-item"><span data-i18n="recDpi">Daily DPI</span><strong>850</strong><small data-i18n="recDpiS">Historical working value; verify yours</small></div>
-            <div class="record-item"><span data-i18n="recCm">Current cm/360</span><strong>—</strong><small data-i18n="recCmS">Measure before finalizing</small></div>
-            <div class="record-item"><span data-i18n="recAct">Regular-key actuation</span><strong>1.50 mm</strong><small data-i18n="recActS">Typing-safe personal baseline</small></div>
-            <div class="record-item"><span>RT D</span><strong>0.35 mm</strong><small data-i18n="recRtdS">Known personal release checkpoint</small></div>
-            <div class="record-item"><span>RT A</span><strong>1.75 mm</strong><small data-i18n="recRtaS">Conservative start; retune in GunZ</small></div>
-          </div>
-          <div class="callout" data-i18n-html="recordNote"><strong>Current record, not a preset:</strong> 850 DPI and the keyboard values above are personal checkpoints from this research. The cm/360 field intentionally remains open until the mouse is re-measured through the new protocol. Copy the order of the method, not the numbers.</div>
-          <div class="inline-links"><a href="research-notebook.html" data-i18n="openNotebook">Open the full research notebook →</a><a href="#top" data-i18n="backTop">Back to top ↑</a></div>
-        </div>
-      </section>
-
-      <section class="chapter" id="glossary">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexGlossary">10 / GLOSSARY</span><div><span class="kicker" data-i18n="glossaryKicker">Definitions once, in the order they are used</span><h2 data-i18n="guideGlossaryTitle">Translate the setting into the test.</h2><p class="chapter-intro" data-i18n="glossaryIntro">Every entry separates the hardware or guide term from the reason it matters in this method. Colored terms elsewhere open a short version without taking you out of the step.</p></div></header>
-        <div class="content-narrow glossary-grid">
-          <article class="panel"><h3 data-i18n="keyboardTerms">Keyboard terms</h3>
-            <details id="term-actuation"><summary data-i18n="actuation">Actuation</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gActWhat">The fixed position measured from the released top where the first downward press reports ON.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gActWhy">It controls the first press; RT A controls a later press after reversal.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gActUse">Keep the shallowest value that preserves normal typing fluency.</span></p></div></details>
-            <details id="term-rapid-trigger"><summary>Rapid Trigger</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gRtWhat">Movement-relative behavior that uses travel distance and direction to report OFF and ON again.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gRtWhy">A repeated press can register without returning to one fixed reset position.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gRtUse">Separate release clearance from reactivation pace and test one symptom at a time.</span></p></div></details>
-            <details id="term-rtd"><summary data-i18n="rtdTitle">RT D · Deactivate</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gRtdWhat">The upward distance an active key travels before it reports OFF.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gRtdWhy">A clean next ON requires the previous press to turn OFF first.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gRtdUse">Change it only when later releases repeatedly fail to clear.</span></p></div></details>
-            <details id="term-reversal"><summary data-i18n="reversal">Reversal</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gRevWhat">The point where upward release stops and downward pressing begins.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gRevWhy">RT A begins measuring the next downstroke from this change of direction.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gRevUse">Do not treat OFF and reversal as though they must happen at the same position.</span></p></div></details>
-            <details id="term-rta"><summary data-i18n="rtaTitle">RT A · Activate</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gRtaWhat">The downward distance required after reversal before the next ON.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gRtaWhy">It changes how much re-press travel is required in a repeated-input cycle.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gRtaUse">Lower it in small steps only when clean movement repeatedly falls behind.</span></p></div></details>
-            <details id="term-split"><summary data-i18n="splitSensitivity">Split Sensitivity</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gSplitWhat">A keyboard option that assigns separate downstroke and upstroke sensitivity values.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gSplitWhy">It lets RT A and RT D be tested independently.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gSplitUse">Match each vendor control by direction and event, not only by name.</span></p></div></details>
-            <details id="term-continuous"><summary data-i18n="continuousRt">Continuous Rapid Trigger</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gContinuousWhat">A mode that keeps Rapid Trigger active until the key is fully released.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gContinuousWhy">Changing the mode changes where movement-relative behavior remains available.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gContinuousUse">Record its state and keep it fixed during comparisons.</span></p></div></details>
-            <details id="term-socd"><summary>SOCD / Snappy Tappy</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gSocdWhat">A separate feature that decides how opposing directions are resolved.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gSocdWhy">It can change directional output without changing RT A or RT D.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gSocdUse">Record it and leave it unchanged while tuning Rapid Trigger.</span></p></div></details>
-            <details id="term-bottom"><summary data-i18n="totalTravel">Total travel and bottom-out</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gBottomWhat">The full physical key distance and its deepest position.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gBottomWhy">It sets the travel available for actuation, release, reversal, and re-press.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gBottomUse">Use the Cycle Tester to check travel capacity, not to predict finger rhythm.</span></p></div></details>
-            <details id="term-other-software"><summary data-i18n="otherSoftware">Equivalent controls on other keyboards</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gOtherWhat">Different Hall-effect software may use Trigger, Reset, Press, Release, Activate, or Deactivate.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gOtherWhy">Matching only a label can reverse the intended adjustment.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gOtherUse">Downward re-press maps to RT A; upward release maps to RT D.</span></p></div></details>
-          </article>
-          <article class="panel"><h3 data-i18n="mouseGuideTerms">Mouse and guide terms</h3>
-            <details id="term-dpi"><summary>DPI</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="glossaryDpi">The mouse sensor's count density. It is a hardware setting, not a measurement of how the game looks on screen.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gDpiWhy">It changes how many counts reach the game's sensitivity calculation.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gDpiUse">Start from the DPI you already use and prevent accidental switching.</span></p></div></details>
-            <details id="term-cm360"><summary>cm/360</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="glossaryCm">The physical mouse distance needed to rotate the in-game view one full turn. Lower cm/360 is faster; higher cm/360 is slower.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gCmWhy">It gives sensitivity a physical meaning that can be compared deliberately.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gCmUse">Adjust by 0.1 cm only after the repeated aim direction is clear.</span></p></div></details>
-            <details id="term-edpi"><summary>eDPI</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gEdpiWhat">DPI multiplied by in-game sensitivity.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gEdpiWhy">It transfers an equivalent sensitivity between DPIs inside the same game pipeline.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gEdpiUse">Use it for conversion; use cm/360 for physical verification.</span></p></div></details>
-            <details id="term-baseline"><summary data-i18n="baseline">Baseline</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gBaseWhat">A known starting or rollback setting before calibration.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gBaseWhy">It gives every change a clean comparison.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gBaseUse">Duplicate the base and never overwrite the last passing version.</span></p></div></details>
-            <details id="term-checkpoint"><summary data-i18n="checkpoint">Checkpoint</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="glossaryCheckpoint">A complete saved record of the settings and test conditions that passed. It is the rollback point before one value changes.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gCheckpointWhy">It keeps a worse result from erasing a proven one.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gCheckpointUse">Save after typing, mouse, training, and combined passes.</span></p></div></details>
-            <details id="term-training"><summary data-i18n="trainingCalibration">Training calibration</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gTrainingWhat">A controlled test of one familiar move on level ground.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gTrainingWhy">It proves keyboard execution without aim, pressure, or opponent positioning.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gTrainingUse">Save the first repeatable result before PvP.</span></p></div></details>
-            <details id="term-pvp"><summary data-i18n="pvpValidation">PvP validation</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gPvpWhat">Testing an already-clean movement against real players.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gPvpWhy">Opponent pace, pressure, position, tracking, and shots are missing from training.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gPvpUse">Run a movement pass and an aim pass without changing both systems together.</span></p></div></details>
-            <details id="term-movement-undershoot"><summary data-i18n="movementUndershoot">Movement undershoot</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gMoveUnderWhat">The character repeatedly arrives behind the opponent while mouse and view stay fixed.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gMoveUnderWhy">It separates movement pace from crosshair distance.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gMoveUnderUse">Investigate RT A only after movement is clean.</span></p></div></details>
-            <details id="term-aim-undershoot"><summary data-i18n="aimUndershoot">Aim undershoot</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gAimUnderWhat">Movement keeps up, but the crosshair repeatedly lands short.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gAimUnderWhy">It points to mouse distance rather than keyboard pacing.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gAimUnderUse">Freeze the passing keyboard and test cm/360 separately.</span></p></div></details>
-            <details id="term-dead-dash"><summary data-i18n="deadDash">Dead dash</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gDeadWhat">A dash you expected did not complete.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gDeadWhy">Repeated failures can show that a release or next ON did not occur.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gDeadUse">Treat one dead dash as noise; diagnose only a repeated pattern.</span></p></div></details>
-            <details id="term-ready"><summary data-i18n="readyBoundary">RT A-ready boundary</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="gReadyWhat">A travel-capacity reference showing where the selected RT A downstroke can still fit before bottom-out.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gReadyWhy">It prevents RT D OFF, reversal, and RT A reactivation from being treated as one event.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gReadyUse">Use it for travel math only; it does not measure your reversal or server timing.</span></p></div></details>
-            <details id="term-gunz-movement"><summary data-i18n="gunzMovement">GunZ movement sequence</summary><div class="definition-body"><p><strong data-i18n="glossaryWhat">What it is:</strong> <span data-i18n="glossaryMovement">A repeatable in-game action such as Flash Step, PPQ, or GDHS. The site uses these as tests; it does not teach the movement itself.</span></p><p><strong data-i18n="glossaryWhy">Why it matters:</strong> <span data-i18n="gMovementWhy">A known sequence lets you test input changes without learning a new move at the same time.</span></p><p><strong data-i18n="glossaryUse">Use here:</strong> <span data-i18n="gMovementUse">Choose one familiar sequence and keep it fixed during calibration.</span></p></div></details>
-          </article>
-        </div>
-      </section>
-
-      <section class="chapter" id="evidence">
-        <header class="chapter-header"><span class="chapter-index" data-i18n="indexLimits">11 / EVIDENCE</span><div><span class="kicker" data-i18n="evidenceKicker">Evidence boundary</span><h2 data-i18n="evidenceTitle">Documented behavior meets personal testing.</h2><p class="chapter-intro" data-i18n="evidenceIntro">Manufacturer and platform documentation explain the controls and input path. The GunZ order, checkpoints, and results come from personal repeat testing and are not universal presets.</p></div></header>
-        <div class="content-narrow grid-2">
-          <article class="panel"><h3 data-i18n="primaryRefs">Primary references</h3><div class="inline-links"><a href="https://help.wooting.io/article/102-how-to-set-up-rapid-trigger" target="_blank" rel="noopener">Wooting · Rapid Trigger ↗</a><a href="https://wooting.io/wootility/changelogs/5.0.0" target="_blank" rel="noopener">Wootility controls ↗</a><a href="https://learn.microsoft.com/en-us/windows/win32/dxtecharts/taking-advantage-of-high-dpi-mouse-movement" target="_blank" rel="noopener">Microsoft · mouse input ↗</a><a href="https://www.gateron.com/products/gateron-magic-jade-switch" target="_blank" rel="noopener">Gateron · Jade HE ↗</a></div></article>
-          <article class="panel"><h3 data-i18n="claimsNot">What this method does not claim</h3><ul class="check-list"><li data-i18n="claim1">That one actuation, RT, DPI, sensitivity, or cm/360 is correct for everyone.</li><li data-i18n="claim2">That a preferred RT A measures a server’s input delay.</li><li data-i18n="claim3">That a desktop pointer drill proves in-game sensitivity.</li><li data-i18n="claim4">That lower values are automatically better.</li></ul></article>
-        </div>
-      </section>
+  <aside class="guide-nav" id="guideNav" aria-label="Guide contents">
+    <p class="nav-title" data-i18n="guideContents">Guide contents</p>
+    <a href="#home"><span>01</span><b data-i18n="navHome">Home</b></a>
+    <a href="#plain"><span>02</span><b data-i18n="navPlain">Rapid Trigger, plainly</b></a>
+    <a href="#cycle"><span>03</span><b data-i18n="navCycle">One complete cycle</b></a>
+    <a href="#gunz"><span>04</span><b data-i18n="navGunz">What changes in GunZ</b></a>
+    <a href="#tradeoffs"><span>05</span><b data-i18n="navTradeoffs">Benefits & tradeoffs</b></a>
+    <a href="#base"><span>06</span><b data-i18n="navBase">Build a GunZ base</b></a>
+    <a href="#rtd"><span>07</span><b data-i18n="navRtd">Tune RT D</b></a>
+    <a href="#rta"><span>08</span><b data-i18n="navRta">Tune RT A</b></a>
+    <a href="#test"><span>09</span><b data-i18n="navTest">Test in GunZ</b></a>
+    <a href="#tester"><span>10</span><b data-i18n="navTester">Cycle tester</b></a>
+    <a href="#troubleshoot"><span>11</span><b data-i18n="navTrouble">Troubleshooting</b></a>
+    <a href="#glossary"><span>12</span><b data-i18n="navGlossary">Glossary</b></a>
+    <a href="#evidence"><span>13</span><b data-i18n="navEvidence">Evidence & help</b></a>
+    <a class="rail-page-link remember-position" href="research-notebook.html" data-i18n="openNotebook">Open the Research Notebook</a>
+    <div class="side-note">
+      <strong data-i18n="readColors">Read the colors.</strong>
+      <span class="side-note-intro" data-i18n="colorIntro">Select a colored term for a short definition without leaving your place.</span>
+      <div class="color-key">
+        <div class="color-key-item"><span class="term-link term-tech">Keyboard term</span><small>Switch motion or actuation</small></div>
+        <div class="color-key-item"><span class="term-link term-guide">Guide term</span><small>A practical label used here</small></div>
+        <div class="color-key-item"><span class="term-link term-a">RT A · Activate</span><small>Downward re-press travel</small></div>
+        <div class="color-key-item"><span class="term-link term-d">RT D · Deactivate</span><small>Upward release travel</small></div>
+      </div>
     </div>
+  </aside>
+
+  <div class="section-banner" id="sectionBanner" aria-hidden="true">
+    <div class="section-banner-inner"><b id="bannerPage">Page 01</b><span id="bannerTitle">Home</span><a href="#top">Section start ↑</a></div>
+  </div>
+
+  <main class="guide-main" id="main">
+    <section class="hero tracked-section" id="home" data-page="01" data-title="Home">
+      <div class="hero-inner">
+        <span class="version-stamp">Revision 2.4</span>
+        <span class="eyebrow" data-i18n="heroEye">A GunZ movement guide</span>
+        <h1 data-i18n-html="heroTitle">Rapid Trigger<br><span>for GunZ.</span></h1>
+        <p class="lede" data-i18n="heroLead">What Rapid Trigger changes, what can go wrong, and how to tune it without guessing.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#plain" data-i18n="startMethod">Start the method</a>
+          <a class="button" href="#tester" data-i18n="openTester">Open the cycle tester</a>
+        </div>
+        <div class="method-strip">
+          <div><b>01 · Learn</b><span data-i18n="map1">Know which part of the key cycle each setting controls.</span></div>
+          <div><b>02 · Base</b><span data-i18n="map2">Begin from a setup you can already control.</span></div>
+          <div><b>03 · Tune</b><span data-i18n="map3">Change one distance only after a symptom repeats.</span></div>
+          <div><b>04 · Keep</b><span data-i18n="map4">Save the last result that stayed clean in real GunZ play.</span></div>
+        </div>
+        <p class="note" data-i18n-html="homeScope"><strong>This guide stays on Rapid Trigger.</strong> My mouse, screen, typing, and full-input process lives in the Research Notebook.</p>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="plain" data-page="02" data-title="Rapid Trigger, plainly">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 02 · Start here</span><h2 data-i18n="plainTitle">Rapid Trigger, in normal words.</h2><p data-i18n="plainIntro">A normal actuation point turns a key ON at one fixed depth. Rapid Trigger lets the key turn OFF and ON again from your movement direction instead of waiting for one fixed reset point.</p></header>
+        <article class="panel stack-card"><h3 data-i18n="threeJobs">Three settings. Three different jobs.</h3>
+          <div class="grid-3">
+            <div class="mini-card"><button class="term-link term-tech" data-term="actuation">Actuation</button><p><strong data-i18n="official">Official behavior:</strong> The first downward point where the released key turns ON.</p><p><strong data-i18n="inGunz">In GunZ:</strong> It controls when the first direction or action begins.</p></div>
+            <div class="mini-card"><button class="term-link term-d" data-term="rtd">RT D · Deactivate</button><p><strong data-i18n="official">Official behavior:</strong> How far you lift after a key is active before it turns OFF.</p><p><strong data-i18n="inGunz">In GunZ:</strong> It controls how much release movement clears the old direction or action.</p></div>
+            <div class="mini-card"><button class="term-link term-a" data-term="rta">RT A · Activate</button><p><strong data-i18n="official">Official behavior:</strong> How far you press down after reversing before the next ON.</p><p><strong data-i18n="inGunz">In GunZ:</strong> It controls how much re-press movement is needed before the next direction, dash, or repeated action.</p></div>
+          </div>
+          <p class="callout amber" data-i18n-html="distanceNotTime"><strong>These values are distances in millimeters—not timing values.</strong> A smaller distance can happen sooner under the same finger motion, but the real time still depends on your hand, keyboard scanning, game, and connection.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="cycle" data-page="03" data-title="One complete cycle">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 03 · The full motion</span><h2 data-i18n="cycleTitle">Read one complete key cycle.</h2><p data-i18n="cycleIntro">This order keeps RT D and RT A from being mixed together.</p></header>
+        <article class="panel stack-card">
+          <div class="cycle">
+            <div><b>01</b><strong>First ON</strong><span>The key crosses its fixed actuation point.</span></div>
+            <div><b>02</b><strong>Continue down</strong><span>The key stays ON while you keep pressing.</span></div>
+            <div><b>03 · RT D</b><strong>Lift to OFF</strong><span>The key moves upward by the RT D distance.</span></div>
+            <div><b>04</b><strong>Reverse</strong><span>Your finger stops lifting and presses down again.</span></div>
+            <div><b>05 · RT A</b><strong>Next ON</strong><span>The key moves down by the RT A distance.</span></div>
+          </div>
+          <p class="callout" data-i18n-html="cycleRule"><strong>Plain rule:</strong> actuation starts the first input, RT D clears it, and RT A starts the next input after you reverse.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="gunz" data-page="04" data-title="What changes in GunZ">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 04 · The GunZ connection</span><h2 data-i18n="gunzTitle">What each setting changes in GunZ.</h2><p data-i18n="gunzIntro">Rapid Trigger does not perform a technique for you. It changes how much finger travel GunZ needs to receive the OFF and next ON around the movement you already perform.</p></header>
+        <article class="panel stack-card"><h3><button class="term-link term-d" type="button" data-term="rtd">RT D</button> clears the old input.</h3><ul class="brief-list"><li><strong>Lower RT D:</strong> less lift before the old direction or action turns OFF.</li><li><strong>Possible GunZ benefit:</strong> a small natural lift can clear sooner between repeated inputs.</li><li><strong>If it is too low:</strong> tiny pressure changes can end a held direction before you meant to release it.</li><li><strong>If it is too high:</strong> the old input may stay active too long and crowd the next part of the sequence.</li></ul></article>
+        <article class="panel stack-card"><h3><button class="term-link term-a" type="button" data-term="rta">RT A</button> starts the next input.</h3><ul class="brief-list"><li><strong>Lower RT A:</strong> less downward re-press before the next ON.</li><li><strong>Possible GunZ benefit:</strong> less finger travel between dashes or repeated directions.</li><li><strong>If it is too low:</strong> a small bounce or unplanned re-press can create an early repeat.</li><li><strong>If it is too high:</strong> the next input may feel late or may not arrive before your finger changes direction again.</li></ul></article>
+        <p class="note warning"><strong>Movement and aim still meet in the same fight.</strong> If movement becomes quicker than your familiar rhythm, your aim can feel out of sync. That does not prove the mouse setting is wrong; it means the new movement rhythm needs to be judged in real play.</p>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="tradeoffs" data-page="05" data-title="Benefits & tradeoffs">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 05 · Faster is not always cleaner</span><h2 data-i18n="tradeTitle">The benefit only counts if you can control it.</h2><p data-i18n="tradeIntro">The smallest number is not the goal. The goal is the least travel you can use without losing intentional movement.</p></header>
+        <article class="panel stack-card"><div class="grid-2"><div><h3>What good tuning can help</h3><ul class="check-list"><li>Less release travel between active inputs.</li><li>Less re-press travel for the next input.</li><li>A movement rhythm that feels easier to repeat.</li><li>More room to match the keyboard to how you actually move.</li></ul></div><div><h3>What poor tuning can cause</h3><ul class="check-list"><li>Directions turning OFF from tiny finger movement.</li><li>Early or accidental repeated inputs.</li><li>A faster rhythm that no longer matches your intention.</li><li>Settings that feel good once but fail across full chains.</li></ul></div></div></article>
+        <article class="panel stack-card"><span class="badge history">Example · not a preset</span><h3>Why 0.10 mm RT D can be a problem.</h3><ul class="brief-list"><li>It asks for only 0.10 mm of upward travel before OFF.</li><li>That may help a player whose lift is very small.</li><li>It also leaves very little physical room for pressure changes or finger bounce.</li><li>If held inputs cut off or movement becomes nervous, raise RT D and test again.</li></ul><p class="callout amber"><strong>Fact check:</strong> 0.10 mm does not mean “0.10 ms.” It is a travel distance.</p></article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="base" data-page="06" data-title="Build a GunZ base">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 06 · Protect the comparison</span><h2 data-i18n="baseTitle">Begin from a GunZ base you can repeat.</h2><p data-i18n="baseIntro">Do not tune around one good or bad attempt. Give yourself a known point you can return to.</p></header>
+        <article class="panel stack-card"><ol class="steps"><li><strong>Duplicate a working profile.</strong> <span>Keep the last known setup untouched.</span></li><li><strong>Use one familiar GunZ movement.</strong> <span>Choose something you can already perform without thinking about the keys.</span></li><li><strong>Keep the rest fixed.</strong> <span>Same keys, map, client, SOCD state, and warm-up.</span></li><li><strong>Run short sets.</strong> <span>Look for the same problem more than once.</span></li><li><strong>Write down the pass.</strong> <span>Save the last value that stayed intentional.</span></li></ol>
+          <p class="callout good"><strong>Starting example used in this project:</strong> 1.50 mm actuation · 1.50 mm RT A · 0.55 mm RT D. This is a repeatable base, not a universal recommendation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="rtd" data-page="07" data-title="Tune RT D">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 07 · Release first</span><h2 data-i18n="rtdTitlePage">Tune RT D until the old input clears on purpose.</h2><p data-i18n="rtdIntro">RT D owns the upward part of the Rapid Trigger cycle. Tune it before RT A so you know the first input is actually ending.</p></header>
+        <article class="panel stack-card"><ol class="steps"><li><strong>Lock actuation and RT A.</strong> <span>Do not move three causes at once.</span></li><li><strong>Run the same movement chain.</strong> <span>Pay attention to whether the previous direction clears.</span></li><li><strong>If it stays ON too long, lower RT D one step.</strong> <span>Less lift will be required for OFF.</span></li><li><strong>If it cuts off early, raise RT D one step.</strong> <span>More lift will be required before OFF.</span></li><li><strong>Stop at the first repeatable release.</strong> <span>Do not keep lowering it just because the keyboard allows it.</span></li></ol>
+          <p class="callout"><strong>GunZ pass:</strong> the old direction or action ends when you intend it to, without staying held and without cutting off from tiny finger movement.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="rta" data-page="08" data-title="Tune RT A">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 08 · Set the next press</span><h2 data-i18n="rtaTitlePage">Tune RT A until the next input matches your pace.</h2><p data-i18n="rtaIntro">Once release is clean, RT A controls how much downward movement is needed after reversal for the next ON.</p></header>
+        <article class="panel stack-card"><ol class="steps"><li><strong>Keep actuation and the passing RT D fixed.</strong> <span>RT A is now the only changing cause.</span></li><li><strong>Repeat the same movement chain.</strong> <span>Watch the next dash, direction, or repeated input.</span></li><li><strong>If the next ON is late, lower RT A one step.</strong> <span>Less re-press travel will be required.</span></li><li><strong>If it repeats too early, raise RT A one step.</strong> <span>More deliberate re-press travel will be required.</span></li><li><strong>Keep the slowest-looking value that feels fully fluent.</strong> <span>The goal is control, not the smallest number.</span></li></ol>
+          <p class="callout"><strong>GunZ pass:</strong> the next input arrives with your intended dash rhythm and does not appear from a small bounce or unfinished release.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="test" data-page="09" data-title="Test in GunZ">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 09 · Training, then pressure</span><h2 data-i18n="testTitle">Make the setting survive real GunZ.</h2><p data-i18n="testIntro">Training shows whether the input can work. PvP shows whether it still works while your pace and attention change.</p></header>
+        <article class="panel stack-card"><h3>Pass 1 · Controlled movement</h3><ol class="steps"><li>Warm up on the saved base.</li><li>Use one familiar move on level ground.</li><li>Run chains of at least five.</li><li>Keep the same test conditions for a full session.</li><li>Change one value only when one symptom repeats.</li></ol></article>
+        <article class="panel stack-card"><h3>Pass 2 · Real players</h3><ol class="steps"><li>Take the training pass into normal PvP.</li><li>Test against more than one player and pace.</li><li>Do not retune after one miss.</li><li>If the same input problem repeats, return to the control that owns it.</li><li>Save the last setting that stays clean under pressure.</li></ol></article>
+        <p class="note"><strong>If you doubt a step:</strong> the <a class="remember-position" href="research-notebook.html">Research Notebook</a> shows the observations and corrections that led to this order.</p>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="tester" data-page="10" data-title="Rapid Trigger Cycle Tester">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 10 · See the cycle</span><h2 data-i18n="testerTitle">Rapid Trigger Cycle Tester.</h2><p data-i18n="testerIntro">Use the visual to see which part of the key cycle moves when you change actuation, RT D, or RT A.</p></header>
+        <article class="panel tester-panel">
+          <div class="tester-heading"><p class="muted"><strong>Three saved comparisons:</strong> GunZ Base, Standard, and GunZ Specific. “Standard” names the screenshot-supported saved profile; it is not an industry default. The tester uses the regular-key values shown in the screenshots.</p></div>
+          <div class="mobile-tester-note"><strong>Best viewed on desktop.</strong> The tester still scales here, but a wider view is easier to read. <a href="assets/rapid-trigger-cycle-tester.html" target="_blank" rel="noopener">Click here to open it in an external window.</a></div>
+          <div class="tester-frame-wrap"><iframe class="tester-frame" id="cycleTesterFrame" src="assets/rapid-trigger-cycle-tester.html" title="Interactive Rapid Trigger Cycle Tester" loading="lazy"></iframe></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="troubleshoot" data-page="11" data-title="Troubleshooting">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 11 · Follow the symptom</span><h2 data-i18n="troubleTitle">Change the setting that owns the problem.</h2><p data-i18n="troubleIntro">A repeated symptom is useful. A single miss is just one miss.</p></header>
+        <article class="panel stack-card"><div class="table-wrap"><table>
+          <thead><tr><th>Repeated symptom</th><th>Check first</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>The first input begins too early or too late.</td><td><button class="term-link term-tech" type="button" data-term="actuation">Actuation</button></td><td>It owns the first ON from the released top.</td></tr>
+            <tr><td>The old direction stays active too long.</td><td><button class="term-link term-d" type="button" data-term="rtd">RT D</button></td><td>More upward release happened before OFF than your motion supplied.</td></tr>
+            <tr><td>A held direction cuts off from tiny movement.</td><td><button class="term-link term-d" type="button" data-term="rtd">RT D</button></td><td>The OFF distance may be too small for your natural pressure changes.</td></tr>
+            <tr><td>The next dash or direction arrives late.</td><td><button class="term-link term-a" type="button" data-term="rta">RT A</button></td><td>It owns the next ON after reversal.</td></tr>
+            <tr><td>An extra or early repeat appears.</td><td><button class="term-link term-a" type="button" data-term="rta">RT A</button></td><td>The re-press distance may be too small for your finger motion.</td></tr>
+            <tr><td>Movement is clean alone but breaks only under pressure.</td><td><button class="term-link term-guide" type="button" data-term="pvp">PvP validation</button></td><td>The value may work in isolation but not at your real pace.</td></tr>
+          </tbody>
+        </table></div><p class="callout warning"><strong>Do not use keyboard tuning to explain every aim miss.</strong> This public guide stops at Rapid Trigger. My wider input checks are documented separately in the Research Notebook.</p></article>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="glossary" data-page="12" data-title="Glossary">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 12 · Definitions</span><h2 data-i18n="glossaryTitle">Definitions once. References afterward.</h2><p data-i18n="glossaryIntro">Colored terms open the same definitions beside the guide. This section keeps the permanent quick reference.</p></header>
+        <div class="glossary-columns">
+        <article class="panel glossary-group">
+          <h3>Keyboard terms</h3>
+          <details id="glossary-actuation" open><summary><span class="term-link term-tech">Actuation point</span></summary><div class="definition-body"><p><strong>Definition:</strong> the key depth where the first press turns ON from the released top.</p><p><strong>GunZ connection:</strong> when the first direction or action begins.</p></div></details>
+          <details id="glossary-rapid-trigger"><summary><span class="term-link term-tech">Rapid Trigger</span></summary><div class="definition-body"><p><strong>Definition:</strong> movement-relative keyboard behavior that uses travel direction and distance to report OFF and ON again instead of one fixed reset point.</p><p><strong>GunZ connection:</strong> repeated directions or actions can clear and return with less finger travel.</p></div></details>
+          <details id="glossary-rtd"><summary><span class="term-link term-d">RT D · Rapid Trigger Deactivate</span></summary><div class="definition-body"><p><strong>Definition:</strong> the upward distance an active key moves before reporting OFF.</p><p><strong>GunZ connection:</strong> how much lift clears the old direction or action.</p></div></details>
+          <details id="glossary-rta"><summary><span class="term-link term-a">RT A · Rapid Trigger Activate</span></summary><div class="definition-body"><p><strong>Definition:</strong> the downward distance after reversal before the key reports its next ON while Rapid Trigger remains active.</p><p><strong>GunZ connection:</strong> how much re-press travel starts the next direction, dash, or repeated action.</p></div></details>
+          <details id="glossary-reversal"><summary><span class="term-link term-tech">Reversal</span></summary><div class="definition-body"><p><strong>Definition:</strong> the point where key motion changes direction.</p><p><strong>GunZ connection:</strong> the handoff between lifting the old input and pressing toward the next one.</p></div></details>
+          <details id="glossary-split"><summary><span class="term-link term-tech">Split sensitivity</span></summary><div class="definition-body"><p><strong>Definition:</strong> Wooting's option for assigning separate downstroke/Activate and upstroke/Deactivate distances.</p><p><strong>GunZ connection:</strong> RT A and RT D can be tested separately instead of sharing one number.</p></div></details>
+          <details id="glossary-continuous"><summary><span class="term-link term-tech">Continuous Rapid Trigger</span></summary><div class="definition-body"><p><strong>Definition:</strong> a mode that keeps Rapid Trigger active until the key is fully released. Standard Rapid Trigger ends when the key rises above its configured actuation point.</p><p><strong>GunZ connection:</strong> changing the mode changes where movement-relative behavior remains available during release, so keep it fixed while comparing values.</p></div></details>
+          <details id="glossary-software"><summary><span class="term-link term-tech">Other keyboard software</span></summary><div class="definition-body"><p><strong>Definition:</strong> another Hall-effect keyboard may use different names for the same upstroke and downstroke controls.</p><p><strong>GunZ connection:</strong> match the function—not only the label—before following the RT D or RT A steps.</p></div></details>
+          <details id="glossary-socd"><summary><span class="term-link term-tech">SOCD / Snappy Tappy</span></summary><div class="definition-body"><p><strong>Definition:</strong> a separate feature that decides how opposing directions are resolved.</p><p><strong>GunZ connection:</strong> it can change directional output without changing Rapid Trigger, so record it and keep it fixed during an RT test.</p></div></details>
+          <details id="glossary-travel"><summary><span class="term-link term-tech">Total travel and bottom-out</span></summary><div class="definition-body"><p><strong>Definition:</strong> total travel is the full physical distance from the released top to the deepest position; bottom-out is that deepest position.</p><p><strong>GunZ connection:</strong> it sets the physical space available for the first ON, release, reversal, and next ON.</p></div></details>
+        </article>
+        <article class="panel glossary-group">
+          <h3>Guide terms</h3>
+          <details id="glossary-baseline"><summary><span class="term-link term-guide">GunZ base</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> a saved, repeatable starting profile that you do not change during comparison.</p></div></details>
+          <details id="glossary-checkpoint"><summary><span class="term-link term-guide">Checkpoint</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> a saved value that passed its current test stage and can be restored if the next change performs worse.</p></div></details>
+          <details id="glossary-dead-dash"><summary><span class="term-link term-guide">Dead dash</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> a dash you expected did not complete.</p><p><strong>GunZ connection:</strong> if it repeats, check whether the old input turned OFF and whether the next ON fit the motion you actually made.</p></div></details>
+          <details id="glossary-ready"><summary><span class="term-link term-guide">RT A-ready boundary</span></summary><div class="definition-body"><p><strong>Definition used in the tester:</strong> a travel-capacity reference showing the deepest reversal position where the full selected RT A distance can still fit before bottom-out.</p><p><strong>Limit:</strong> it is not a Wootility control, an OFF point, or a server-timing measurement.</p></div></details>
+          <details id="glossary-training"><summary><span class="term-link term-guide">Training calibration</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> a controlled test of a familiar move before an opponent and pressure are added.</p></div></details>
+          <details id="glossary-pvp"><summary><span class="term-link term-guide">PvP validation</span></summary><div class="definition-body"><p><strong>Definition used here:</strong> testing a training pass against real players, changing pace, and pressure before saving it as preferred.</p></div></details>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter tracked-section" id="evidence" data-page="13" data-title="Evidence & help">
+      <div class="chapter-inner">
+        <header class="chapter-header"><span class="kicker">Page 13 · What is known</span><h2 data-i18n="evidenceTitle">Evidence, limits, and help.</h2><p data-i18n="evidenceIntro">Documented keyboard behavior and personal GunZ testing are useful in different ways.</p></header>
+        <article class="panel stack-card"><h3>What the sources support</h3><ul class="brief-list"><li>Rapid Trigger follows key motion instead of one fixed reset point.</li><li>Split sensitivity can use separate upward/deactivate and downward/activate distances.</li><li>Smaller selected distances require less physical travel.</li></ul><h3>What this guide does not claim</h3><ul class="brief-list"><li>That one profile is correct for every player, keyboard, or server.</li><li>That a distance in millimeters equals a fixed number of milliseconds.</li><li>That Rapid Trigger replaces movement practice or fixes every missed input.</li></ul></article>
+        <article class="panel stack-card"><h3>Primary references</h3><div class="resource-grid"><a class="resource-link" href="https://help.wooting.io/article/102-how-to-set-up-rapid-trigger" target="_blank" rel="noopener">Wooting · How to Set Up Rapid Trigger <span>↗</span></a><a class="resource-link" href="https://wooting.io/rapid-trigger" target="_blank" rel="noopener">Wooting · Rapid Trigger <span>↗</span></a><a class="resource-link remember-position" href="research-notebook.html">My Research Notebook <span>→</span></a><a class="resource-link" href="https://discord.gg/tKZ5mjnEpj" target="_blank" rel="noopener">Alpha Discord · Ask me for help <span>↗</span></a></div></article>
+      </div>
+    </section>
   </main>
 
-  <dialog class="term-dialog" id="termDialog" aria-labelledby="termDialogTitle">
-    <form method="dialog"><button class="term-dialog-close" type="submit" aria-label="Close definition">×</button></form>
-    <span class="status-label" data-i18n="quickDefinition">Quick definition</span>
-    <h2 id="termDialogTitle">Definition</h2>
-    <div class="term-dialog-body" id="termDialogBody"></div>
-    <a class="term-dialog-link" id="termDialogLink" href="#glossary" data-i18n="openFullEntry">Open the full glossary entry →</a>
-  </dialog>
+  <aside class="term-panel" id="termPanel" role="dialog" aria-labelledby="termPanelTitle" aria-hidden="true"><div class="term-panel-head"><span class="term-panel-label">Guide term</span><button class="term-panel-close" id="termPanelClose" type="button" aria-label="Close definition">×</button></div><h2 id="termPanelTitle"></h2><div id="termPanelBody"></div><a class="term-panel-glossary" id="termPanelLink" href="#glossary">Open the full glossary entry →</a></aside>
 
-  <footer class="site-footer"><div class="page-shell footer-inner"><span data-i18n="footer">Rapid Trigger for GunZ · Complete input method · Research and testing by HYPNATIQ</span><a href="research-notebook.html" data-i18n="navNotebook">Research notebook</a></div></footer>
-  <script src="assets/translations.js"></script>
-  <script src="assets/revision-22-translations.js"></script>
+  <footer class="site-footer"><div class="help-strip"><span>Need help or want to compare a result?</span><a href="https://discord.gg/tKZ5mjnEpj" target="_blank" rel="noopener">Join Alpha on Discord ↗</a></div><span>Rapid Trigger for GunZ · Personal testing method by HYPNATIQ</span></footer>
+  <a class="back-to-top" id="backToTop" href="#top" aria-label="Back to top">↑</a>
+  <button class="return-to-reading" id="returnToReading" type="button">← Back to where I was reading</button>
+
+  <script src="assets/revision-24-translations.js"></script>
   <script src="assets/site.js"></script>
 </body>
 </html>

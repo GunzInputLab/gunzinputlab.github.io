@@ -31,7 +31,7 @@
     color:var(--text);
     font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   }
-  .shell{max-width:1440px;margin:0 auto;padding:26px 22px 58px}
+  .shell{width:100%;max-width:none;margin:0;padding:26px 22px 58px}
   .eyebrow{
     font:800 12px/1.1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
     letter-spacing:.16em;color:var(--cyan);text-transform:uppercase
@@ -458,16 +458,13 @@
   <div class="eyebrow">GunZ Input Lab</div>
   <h1>Rapid Trigger Cycle Tester</h1>
   <p class="lede">
-    Defaulted to the current <b>GunZ Base starting checkpoint</b>. Historical server checkpoints remain available for comparison. The cycle keeps <b>deactivation</b> and <b>reversal</b> separate:
-    RT-D marks where the key turns OFF, the key may continue traveling upward after that, and reversal is only recorded when the user actually changes direction and starts pressing down again.
+    Start with one of three saved comparisons, then edit a value if you want to see what changes. <b>RT D</b> marks where the active key turns OFF. <b>Reversal</b> happens later only if you stop lifting and press down again. <b>RT A</b> then marks the travel needed for the next ON.
   </p>
 
   <div class="profile-strip">
-    <button class="profile-btn active" data-profile="gunzbase">GunZ Base<small>1.50 A · 1.75 RT-A · .35 RT-D</small></button>
-    <button class="profile-btn" data-profile="igunz">iGunz · historical<small>1.55 A · .10 RT-A · .35 RT-D</small></button>
-    <button class="profile-btn" data-profile="fxp">FXP · historical<small>1.55 A · .35 RT-A · .35 RT-D</small></button>
-    <button class="profile-btn" data-profile="fgunz">FGunZ · historical<small>1.55 A · 1.15 RT-A · .35 RT-D</small></button>
-    <button class="profile-btn" data-profile="manual">Manual<small>Edit values directly</small></button>
+    <button class="profile-btn active" data-profile="gunzbase">GunZ Base<small>1.50 A · 1.50 RT-A · .55 RT-D</small></button>
+    <button class="profile-btn" data-profile="standard">Standard<small>1.50 A · .30 RT-A · .15 RT-D</small></button>
+    <button class="profile-btn" data-profile="gunzspecific">GunZ Specific<small>.60 A · .35 RT-A · .25 RT-D</small></button>
   </div>
 
   <div class="grid">
@@ -493,12 +490,12 @@
 
       <div class="field">
         <label>RT-A <span>downward travel after reversal</span></label>
-        <input id="rta" type="number" min="0.01" max="10" step="0.01" value="1.75" />
+        <input id="rta" type="number" min="0.01" max="10" step="0.01" value="1.50" />
       </div>
 
       <div class="field">
         <label>RT-D <span>upward travel before OFF</span></label>
-        <input id="rtd" type="number" min="0.01" max="10" step="0.01" value="0.35" />
+        <input id="rtd" type="number" min="0.01" max="10" step="0.01" value="0.55" />
       </div>
 
       <div class="field">
@@ -742,31 +739,19 @@
       title:"GunZ Base",
       badge:"GUNZ BASE",
       switch:"jade",
-          act:1.50, rtd:0.35, rta:1.75
+      act:1.50, rtd:0.55, rta:1.50
     },
-    igunz:{
-      title:"iGunz historical checkpoint",
-      badge:"HISTORICAL",
+    standard:{
+      title:"Standard · regular-key values",
+      badge:"STANDARD",
       switch:"jade",
-      act:1.55, rtd:0.35, rta:0.10
+      act:1.50, rtd:0.15, rta:0.30
     },
-    fxp:{
-      title:"FXP GunZ historical checkpoint",
-      badge:"HISTORICAL",
+    gunzspecific:{
+      title:"GunZ Specific · regular-key values",
+      badge:"GUNZ SPECIFIC",
       switch:"jade",
-      act:1.55, rtd:0.35, rta:0.35
-    },
-    fgunz:{
-      title:"FGunZ historical checkpoint",
-      badge:"HISTORICAL",
-      switch:"jade",
-      act:1.50, rtd:0.35, rta:1.75
-    },
-    manual:{
-      title:"Manual",
-      badge:"MANUAL",
-      switch:"other",
-      act:1.55, rtd:0.35, rta:1.15
+      act:0.60, rtd:0.25, rta:0.35
     }
   };
 
@@ -812,7 +797,7 @@
 
   const state = {
     current:0, prev:0, active:false, everActuated:false, deepest:null, highestRelease:null, reversalPoint:null,
-    rtDeactivated:false, rtaReactivated:false, lastDirection:"released", autoRunning:false, currentProfile:"fgunz"
+    rtDeactivated:false, rtaReactivated:false, lastDirection:"released", autoRunning:false, currentProfile:"gunzbase"
   };
 
   const n = v => Number(v);
@@ -1098,7 +1083,7 @@
     const c = cfg();
     if (!validConfig(c)) return;
 
-    const p = profiles[state.currentProfile] || profiles.manual;
+    const p = profiles[state.currentProfile] || {title:"Custom values"};
     const dead = c.bo - c.act;
     const off = c.bo - c.rtd;
     const info = readyZoneInfo(c);
@@ -1452,16 +1437,7 @@
   document.querySelectorAll(".profile-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const name = btn.dataset.profile;
-      if (name === "manual") {
-        state.currentProfile = "manual";
-        els.profileBadge.textContent = "MANUAL";
-        document.querySelectorAll(".profile-btn").forEach(b => b.classList.toggle("active", b === btn));
-        els.switchSelect.value = "other";
-        updateSwitchSelection(true);
-        resetCycle();
-      } else {
-        applyProfile(name);
-      }
+      applyProfile(name);
     });
   });
 
@@ -1471,10 +1447,10 @@
 
   [els.switchSelect, els.bo, els.act, els.rta, els.rtd].forEach(el => {
     el.addEventListener("input", () => {
-      if (state.currentProfile !== "manual") {
-        state.currentProfile = "manual";
-        els.profileBadge.textContent = "MANUAL";
-        document.querySelectorAll(".profile-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.profile === "manual"));
+      if (state.currentProfile !== "custom") {
+        state.currentProfile = "custom";
+        els.profileBadge.textContent = "CUSTOM VALUES";
+        document.querySelectorAll(".profile-btn").forEach(btn => btn.classList.remove("active"));
       }
       if (el === els.switchSelect) updateSwitchSelection(els.switchSelect.value === "other");
       const c = cfg();
@@ -1576,6 +1552,13 @@
     autoBtn.classList.remove("warn");
     autoBtn.classList.add("primary");
   }
+
+  function reportHeight() {
+    if (window.parent === window) return;
+    window.parent.postMessage({type:"rapid-trigger-tester-height", height:document.documentElement.scrollHeight}, "*");
+  }
+  if ("ResizeObserver" in window) new ResizeObserver(reportHeight).observe(document.body);
+  addEventListener("load", reportHeight);
 
   applyProfile("gunzbase");
 })();
