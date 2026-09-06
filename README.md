@@ -20,7 +20,8 @@ mouse verification, the Wootility records, and the reasoning behind the public o
 - `research-notebook.html` — bullet-first personal findings, two-profile reasoning,
   full-input workflow, Wootility records, and evidence limits inside the same header,
   progress, numbered rail, section banner, and mobile-navigation shell as the guide.
-- `assets/rapid-trigger-cycle-tester.html` — preserved interactive tester.
+- `assets/rapid-trigger-cycle-tester.html` — preserved interactive tester, sized to
+  its real content height so the guide does not leave a large empty area below it.
 - `assets/site.css` and `assets/site.js` — shared presentation and behavior.
 - `assets/revision-24-translations.js` — current translation structure and working
   translations. English remains the approved source voice pending fluent review.
@@ -44,6 +45,10 @@ existing return-to-reading control preserves the reader's place between pages.
 Both pages now use the same 1-to-1 navigation behavior, including active-section
 tracking, page count, progress, Back to top, mobile contents, and colored definition
 windows.
+
+Both Evidence sections restore the full approved reference set: Wooting and Gateron
+documentation, Wooting and Optimum keyboard videos, and GunZ Academy movement guides.
+The labels keep keyboard behavior, GunZ movement, and Hanz's own testing separate.
 
 ## Evidence boundary
 

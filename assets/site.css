@@ -130,6 +130,8 @@ summary { padding: 12px 14px; color: var(--text); cursor: pointer; font-weight: 
 .glossary-group .definition-body { padding-top: 12px; }
 .resource-link { display: flex; justify-content: space-between; gap: 12px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 10px; color: var(--text); background: var(--panel-2); text-decoration: none; }
 .resource-link:hover { border-color: var(--blue); }
+.reference-card h3:not(:first-child) { margin-top: 24px; }
+.reference-note { margin: -4px 0 13px; color: var(--muted); font-size: .86rem; }
 
 .term-panel { position: fixed; z-index: 1200; top: calc(var(--header-h) + var(--banner-h) + 12px); right: 16px; width: min(370px,calc(100vw - 28px)); max-height: calc(100vh - var(--header-h) - var(--banner-h) - 28px); padding: 19px; overflow-y: auto; border: 1px solid #29445e; border-radius: 14px; color: #aab9c9; background: #08131e; box-shadow: 0 24px 68px rgba(0,0,0,.5); opacity: 0; pointer-events: none; transform: translateX(calc(100% + 28px)); transition: opacity .17s ease,transform .2s ease; }
 .term-panel.open { opacity: 1; pointer-events: auto; transform: translateX(0); } .term-panel-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
@@ -139,7 +141,7 @@ summary { padding: 12px 14px; color: var(--text); cursor: pointer; font-weight: 
 .term-panel-glossary { display: inline-flex; margin-top: 17px; color: #7dc8ff; font-weight: 850; text-decoration: none; }
 
 .tester-panel { padding: 0; overflow: hidden; } .tester-heading { padding: 20px 22px 0; }
-.tester-frame-wrap { width: 100%; overflow: hidden; background: #050b12; } .tester-frame { display: block; width: 100%; min-width: 0; height: 1500px; border: 0; background: #050b12; }
+.tester-frame-wrap { width: 100%; overflow: hidden; background: #050b12; } .tester-frame { display: block; width: 100%; min-width: 0; height: 980px; border: 0; background: #050b12; }
 .mobile-tester-note { display: none; margin: 14px 14px 0; padding: 13px; border: 1px solid var(--amber); border-radius: 9px; color: var(--muted); background: var(--panel-2); }
 .mobile-tester-note a { color: var(--cyan); font-weight: 850; }
 
@@ -155,7 +157,6 @@ summary { padding: 12px 14px; color: var(--text); cursor: pointer; font-weight: 
 .notebook-main { min-width: 0; }
 .notebook-page .brand-mark { width: 48px; }
 .notebook-page .rail-page-link { margin-top: 16px; }
-.rail-print { width: calc(100% - 10px); margin: 8px 5px 0; cursor: pointer; }
 .notebook-hero { padding: 82px 26px 68px; }
 .notebook-hero-inner { width: min(var(--content-w),100%); margin: auto; }
 .notebook-hero h1 { max-width: 880px; margin: 11px 0 15px; font-size: clamp(2.8rem,6vw,5.5rem); line-height: 1; letter-spacing: -.055em; } .notebook-hero h1 span { color: var(--blue); } .notebook-hero .lede { max-width: 850px; }
@@ -195,7 +196,7 @@ summary { padding: 12px 14px; color: var(--text); cursor: pointer; font-weight: 
   .version-stamp { position: static; display: flex; width: max-content; max-width: 100%; margin: 0 0 16px; }
   .term-panel { inset: auto 9px 9px; width: auto; max-height: 72vh; transform: translateY(calc(100% + 18px)); } .term-panel.open { transform: none; }
   .return-to-reading { right: 9px; bottom: 61px; max-width: calc(100vw - 18px); }
-  .mobile-tester-note { display: block; } .tester-frame { min-height: 1180px; }
+  .mobile-tester-note { display: block; }
   .notebook-hero { padding: 74px 15px 56px; } .notebook-content { padding: 0; } .notebook-entry { padding: 62px 14px 72px; }
   .entry-head { grid-template-columns: 1fr; gap: 8px; } .entry-no { width: 44px; height: 44px; } .note-sheet { padding: 20px 16px; }
   .setting-row { display: grid; gap: 3px; } .setting-row strong { text-align: left; }

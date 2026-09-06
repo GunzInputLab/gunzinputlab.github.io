@@ -124,6 +124,13 @@
 
   addEventListener('scroll', queuePageUpdate, { passive: true });
   addEventListener('resize', queuePageUpdate);
+  doc.querySelectorAll('a[href="#top"]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      const behavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      scrollTo({ top: 0, left: 0, behavior });
+    });
+  });
   navLinks.forEach(link => link.addEventListener('click', () => {
     navLinks.forEach(item => item.classList.toggle('active', item === link));
   }));
@@ -220,19 +227,18 @@
     if (event.key === 'Escape' && panel?.classList.contains('open')) closeTermPanel();
   });
 
-  doc.getElementById('printNotebook')?.addEventListener('click', () => print());
-
   const testerFrame = doc.getElementById('cycleTesterFrame');
   addEventListener('message', event => {
     if (event.source !== testerFrame?.contentWindow || event.data?.type !== 'rapid-trigger-tester-height') return;
     const height = Number(event.data.height);
-    if (height > 400 && height < 4000) testerFrame.style.height = `${Math.ceil(height)}px`;
+    if (height > 400 && height < 10000) testerFrame.style.height = `${Math.ceil(height)}px`;
   });
   testerFrame?.addEventListener('load', () => {
     try {
-      const height = testerFrame.contentDocument?.documentElement?.scrollHeight;
+      const shell = testerFrame.contentDocument?.querySelector('.shell');
+      const height = shell ? Math.ceil(shell.getBoundingClientRect().height) : testerFrame.contentDocument?.body?.scrollHeight;
       if (height > 400) testerFrame.style.height = `${height}px`;
-    } catch (_) { /* Same-origin in production and local review; fixed CSS height remains as fallback. */ }
+    } catch (_) { /* Same-origin in production and local review; compact CSS height remains as fallback. */ }
   });
 
   setLanguage(localStorage.getItem('gil-language') || 'en');
